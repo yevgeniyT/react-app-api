@@ -12,7 +12,7 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route exact path='/' element={<Home />}/>
+            <Route exact path='/' element={<Home />} />
             <Route path='/add' element={<NewCharacter />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
