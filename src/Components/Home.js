@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-const API_URL = "https://rickandmortyapi.com/api/character"
+import { getAllCharacters } from '../services/postServices';
 
 const Home = () => {
     // gonna display here CharactersList
@@ -7,28 +7,22 @@ const Home = () => {
         const [error, setError] = useState(null);
         const [isPending, setIsPending] = useState(true);
 
-        const fetchHeros =() =>{
-            setIsPending(true)
-            fetch(API_URL)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error('Could not fetch that data..');
-                    }
-                    return response.json();
-                })
-                .then((json) => {
-                    setData(json);
-                    setIsPending(false);
-                    setError(null);
-                })
-                .catch((error) => {
-                    setError(error.message);
-                    setData(null);
-                    setIsPending(false);
-                });
-        }
+        const fetchCharacters = async () => {
+            try {
+              const response = await getAllCharacters();
+              if (!response.ok) {
+                throw new Error("Could not fetch that data..");
+              }
+              const json = await response.json();
+              setData(json);
+              setIsPending(false);
+            } catch (error) {
+              setError(error.message);
+              setIsPending(false);
+            }
+          };
         useEffect(() => {
-            fetchHeros()
+            fetchCharacters()
         }, [])
     
         const renderData = data && data.results.map((character) => {
