@@ -1,12 +1,13 @@
 import { useState, useEffect} from 'react';
+const API_URL = "https://rickandmortyapi.com/api/character"
 // TODO change to async await 
-const useFetch = (URL) => {
+const useFetch = () => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [isPending, setIsPending] = useState(true);
 
     useEffect(() => {
-        fetch(URL)
+        fetch(API_URL)
             .then((response) => {
                 if (!response.ok) {
                     throw Error('Could not fetch that data..');
@@ -23,9 +24,13 @@ const useFetch = (URL) => {
                 setData(null);
                 setIsPending(false);
             });
-    }, [URL])
+    }, [])
 
-    return ({ data, isPending, error });
+    return (<div>
+        {isPending && <p>Loading data .....</p>}
+        {error ? <p>{error}</p>: {data} }
+        console.log({data});
+    </div>);
 }
 
 export default useFetch;
