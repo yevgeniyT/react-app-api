@@ -1,6 +1,14 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
     return (
-        <header>Header</header>
+        <header>
+            <div className="search-bar"></div>
+            <nav>
+                <Link to='/'>Home</Link>
+                <Link to='/create'>Create</Link>
+            </nav>
+        </header>
     );
 }
  
