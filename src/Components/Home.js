@@ -1,22 +1,17 @@
-import useFetch from '../Services/useFetch.js'
+import useFetch from '../services/useFetch'
+import CharactersList from './CharactersList';
+import { Error, Loading } from './handlers';
 
 const Home = () => {
-    // gonna display here CharactersList
     const { data, error, isPending } = useFetch();
-
-    const renderData = data && data.results.map((character) => {
-        return (
-            <div key={character.id}>
-                <h3>{character.name}</h3>
-                <h3>{character.gender}</h3>
-            </div>
-        )
-    })
-    return (<div>
-        <h1> Hello from home </h1>
-        {isPending && <p>Loading data .....</p>}
-        {error ? <p>{error}</p> : renderData}
-    </div>);
+    return (
+        <section className='home'>
+            {console.log("fake change is here lol")}
+            <h1> Welcome to Rick and Morty Universe </h1>
+            {isPending && <Loading />}
+            {data && <CharactersList data={data.results} />}
+            {error && <Error message={error} />}
+        </section>);
 }
 
 export default Home;
