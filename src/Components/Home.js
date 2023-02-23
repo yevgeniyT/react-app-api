@@ -1,4 +1,4 @@
-import useFetch from '../services/useFetch'
+import useFetch from '../Services/useFetch.js'
 
 const Home = () => {
     // gonna display here CharactersList

@@ -9,7 +9,7 @@ const Character = (props) => {
                 <div className="character__details">
                     <h4 className="character__name">{character.results.name}</h4>
                     <p className="character__status">Status: ${character.results.status}</p>
-                    <p className="character__species">Species: {character.results.species}/5</p>
+                    <p className="character__species">Species: {character.results.species}</p>
                     <p className="character__origin">Origin: {character.results.origin.name}</p>
                 </div>
             </article>

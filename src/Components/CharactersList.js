@@ -6,7 +6,7 @@ const CharactersList = (props) => {
     const { data } = props;
     return (
         <section className="data">
-            {data.map((data) => (
+            {data.image.map((data) => (
                 <Character key={data.id} data={data} />
             ))}
         </section>

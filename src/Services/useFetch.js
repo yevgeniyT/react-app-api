@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAllCharacters } from '../services/postServices';
+import { getAllCharacters } from '../Services/postServices';
 
 const useFetch = () => {
     const [data, setData] = useState(null);
@@ -24,8 +24,8 @@ const useFetch = () => {
     useEffect(() => {
         fetchCharacters()
     }, []);
-    
-    return {data, error, isPending}
+
+    return { data, error, isPending }
 }
 
 export default useFetch;
