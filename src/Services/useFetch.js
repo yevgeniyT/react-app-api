@@ -1,38 +1,33 @@
-// import { useState, useEffect} from 'react';
-// const API_URL = "https://rickandmortyapi.com/api/character"
-// // TODO change to async await 
-// const useFetch = () => {
-//     const [data, setData] = useState(null);
-//     const [error, setError] = useState(null);
-//     const [isPending, setIsPending] = useState(true);
+import { useState, useEffect } from 'react';
+import { getAllCharacters } from '../services/postServices';
 
-//     useEffect(() => {
-//         fetch(API_URL)
-//             .then((response) => {
-//                 if (!response.ok) {
-//                     throw Error('Could not fetch that data..');
-//                 }
-//                 return response.json();
-//             })
-//             .then((json) => {
-//                 setData(json);
-//                 setIsPending(false);
-//                 setError(null);
-//             })
-//             .catch((error) => {
-//                 setError(error.message);
-//                 setData(null);
-//                 setIsPending(false);
-//             });
-//     }, [])
+const useFetch = () => {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    const [isPending, setIsPending] = useState(true);
 
-//     return (<div>
-//         {isPending && <p>Loading data .....</p>}
-//         {error ? <p>{error}</p>: {data} }
-//         console.log({data});
-//     </div>);
-// }
+    const fetchCharacters = async () => {
+        try {
+            const response = await getAllCharacters();
+            if (!response.ok) {
+                throw new Error("Could not fetch that data..");
+            }
+            const json = await response.json();
+            setData(json);
+            setIsPending(false);
+        } catch (error) {
+            setError(error.message);
+            setIsPending(false);
+        }
+    };
 
-// export default useFetch;
+    useEffect(() => {
+        fetchCharacters()
+    }, []);
+    
+    return {data, error, isPending}
+}
+
+export default useFetch;
 
 
