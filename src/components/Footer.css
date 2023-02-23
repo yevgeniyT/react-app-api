@@ -1,0 +1,20 @@
+.footer {
+    background-color: red;
+    height: 10vh;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex-basis: 100%;
+    text-align: center;
+  }
+  
+ 

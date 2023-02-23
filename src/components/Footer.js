@@ -10,6 +10,9 @@ import React from 'react';
 
 import {FaYoutube} from 'react-icons/fa';
 import {FaInstagram} from 'react-icons/fa';
+import {FaHome} from 'react-icons/fa'; //FaHome
+import './Footer.css';
+
 
 const Footer = () => {
   const creatorLinks = [
@@ -28,16 +31,21 @@ const Footer = () => {
   ];
 
   return (
-    <footer>
-      <div>
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"> <FaYoutube/></a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>
-      </div>
-      <div>
-        Created by: {creatorLinks.map((creator) => (
-          <a href={creator.link} key={creator.name} target="_blank" rel="noopener noreferrer">{creator.name}</a>
-        ))}
-      </div>
+    <footer className='footer'>
+        <div className='container'>
+            <div className='fotter-left'>
+            <a href="/"><FaHome/></a>
+            </div> 
+            <div className='footer-center'>
+                Created by: {creatorLinks.map((creator) => (
+                <a href={creator.link} key={creator.name} target="_blank" rel="noopener noreferrer">{creator.name}</a>
+                ))}
+            </div>
+            <div className='footer-right'>
+                <a href="https://www.youtube.com/watch?v=XxBuZMB-YZs&list=PLfpipp6KbWs4yvs7K287mBKxO7x7TSpvX" target="_blank" rel="noopener noreferrer"> <FaYoutube/></a>
+                <a href="https://www.instagram.com/rickandmortyrickstaverse/" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>
+            </div>
+        </div>
     </footer>
   );
 }
