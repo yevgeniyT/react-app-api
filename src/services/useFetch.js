@@ -22,12 +22,10 @@ const useFetch = () => {
     };
 
     useEffect(() => {
-        fetchCharacters()
+        fetchCharacters();
     }, []);
 
     return { data, error, isPending }
 }
 
 export default useFetch;
-
-

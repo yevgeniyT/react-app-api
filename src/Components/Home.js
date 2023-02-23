@@ -1,16 +1,15 @@
-import useFetch from '../services/useFetch'
 import CharactersList from './CharactersList';
-import { Error, Loading } from './handlers';
 
-const Home = () => {
-    const { data, error, isPending } = useFetch();
+const Home = ({ data }) => {
     return (
         <section className='home'>
-            {console.log("fake change is here lol")}
-            <h1> Welcome to Rick and Morty Universe </h1>
-            {isPending && <Loading />}
-            {data && <CharactersList data={data.results} />}
-            {error && <Error message={error} />}
+            <div class="container">
+                <div class="portal"></div>
+                <div class="title">Rick<span>and </span>Morty</div>
+                <div class="title middle"> Rick<span>and </span>Morty</div>
+                <div class="title bottom"> Rick<span>and </span>Morty</div>
+            </div>
+            {data && <CharactersList data={data} />}
         </section>);
 }
 
