@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAllCharacters } from '../services/postServices';
+import { getAllCharacters } from './postServices';
 
 const useFetch = () => {
     const [data, setData] = useState(null);
