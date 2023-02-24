@@ -30,7 +30,7 @@ const NewCharacter = ({ onCreate }) => {
         });
     }
 
-    const {data:locations, error, isPending } = useFetch("locations");
+    const {data:locations, error, isPending } = useFetch("location?page=2");
 
     return (
         <section className="create">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {getAllCharacters, getAllLocations, getAllEpisodes} from './postServices';
+import {getAllCharacters, getAllLocations, getAllEpisodes, getCustomData} from './postServices';
 
 const useFetch = (getData) => {
     const [data, setData] = useState(null);
@@ -10,6 +10,9 @@ const useFetch = (getData) => {
         try {
             let response = null;
             switch (getData){
+                case "characters":
+                    response = await getAllCharacters();
+                break;
                 case "locations":
                     response = await getAllLocations();
                 break;
@@ -17,14 +20,14 @@ const useFetch = (getData) => {
                     response = await getAllEpisodes();
                 break;
                 default:
-                    response = await getAllCharacters();
+                    response = await getCustomData(getData);
             }
+            
             if (!response.ok) { 
                 throw new Error("Could not fetch that data..");
             }
             const json = await response.json();
             setData(json);
-            console.log(json);
             setIsPending(false);
         } catch (error) {
             setError(error.message);
