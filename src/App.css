@@ -11,6 +11,7 @@
   text-decoration: none;
   outline: none;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -25,6 +26,20 @@ body {
   align-items: center;
 }
 
+/* header */
+.header{
+  height: 10vh;
+  padding: 0 1rem;
+  justify-content: space-between;
+}
+
+.search-bar{
+  /* DUMMY STYLE */
+  width: 20%;
+  height: 40%;
+  background-color: #6caaaf;
+}
+
 .route {
   font-family: "Get Schwifty";
   font-size: 2em;
@@ -34,6 +49,8 @@ body {
   padding-top: 1rem;
 }
 
+
+/* characters section */
 .character__name {
   text-align: center;
   margin: 1rem 0;
@@ -63,7 +80,7 @@ img {
   transition: all 0.3s;
 }
 .character:hover {
-  transform: scale(1.1);
+  transform: scale(1.02);
 }
 
 .container {
@@ -139,6 +156,19 @@ img {
   src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3089507/get-schwifty.woff")
     format("woff");
 }
+
+/* create new character section */
+.create{
+  min-height: 80vh;
+}
+
+
+/* character details section */
+.details{
+  min-height: 80vh;
+}
+
+
 
 /* footer starts */
 
