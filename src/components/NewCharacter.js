@@ -21,9 +21,6 @@ const NewCharacter = ({ onCreate }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("submit");
-        console.log(images.find(image => image.name === character.image).src);
-        console.log(character);
         onCreate(character);
         setCharacter(initCharacter);
         navigate('/');
