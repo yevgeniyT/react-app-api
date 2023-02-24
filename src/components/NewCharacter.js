@@ -7,7 +7,7 @@ import { Loading, Error } from "./handlers";
 
 const NewCharacter = ({ onCreate }) => {
     const initCharacter = {
-        image: 'woman',
+        image: 'man',
         name: '',
         status: 'alive',
         species: 'human',
@@ -15,19 +15,23 @@ const NewCharacter = ({ onCreate }) => {
             name: 'unknown'
         },
     }
-
     const [character, setCharacter] = useState(initCharacter);
+    const [creating, setCreating] = useState(false);
+
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onCreate(character);
-        setCharacter(initCharacter);
-        navigate('/');
+        setCreating(true);
+        setTimeout(()=>{ // faking a post request
+            onCreate(character);
+            setCharacter(initCharacter);
+            setCreating(false);
+            navigate('/');
+        }, 2000);
     }
 
     const handleChange = (event) => {
-        console.log(character);
         setCharacter((prevState) => {
             return { ...prevState, [event.target.name]: event.target.value }
         });
@@ -65,51 +69,62 @@ const NewCharacter = ({ onCreate }) => {
 
     return (
         <section className="create">
-            <h2 className="create__header">Expand the Universe of Rick and Morty!</h2>
+            <h2 className="create__header flex-centered">Expand the Universe of Rick and Morty!</h2>
             {isPending && <Loading />}
-            {error ? <Error message={error.message}/> :
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="fullName">Name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        required
-                        value={character.name}
-                        onChange={handleChange}
-                    />
-                    <label htmlFor="status">Status</label>
-                    <select
-                        name="status"
-                        id="status"
-                        value={character.status}
-                        onChange={handleChange}>
-                        {statusOptions}
-                    </select>
-                    <label htmlFor="species">Species</label>
-                    <select
-                        name="species"
-                        id="species"
-                        value={character.species}
-                        onChange={handleChange}>
-                        {speciesOptions}
-                    </select>
-                    <label htmlFor="origin">Origin</label>
-                    <select
-                        name="origin"
-                        id="origin"
-                        value={character.origin.name}
-                        onChange={handleOrigin}>
-                        {locations}
-                    </select>
-                    <label htmlFor="image">How would you describe your character?</label>
-                    <select
-                        name="image"
-                        id="image"
-                        value={character.image}
-                        onChange={handleChange}>
-                        {imagesOptions}
-                    </select>
-                    <button type="submit">Add Character</button>
+            {error ? <Error message={error.message} /> :
+                <form onSubmit={handleSubmit} className="flex-centered">
+                    <div className="form__element">
+                        <label htmlFor="fullName">Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                            value={character.name}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="form__element">
+                        <label htmlFor="status">Status</label>
+                        <select
+                            name="status"
+                            id="status"
+                            value={character.status}
+                            onChange={handleChange}>
+                            {statusOptions}
+                        </select>
+                    </div>
+                    <div className="form__element">
+                        <label htmlFor="species">Species</label>
+                        <select
+                            name="species"
+                            id="species"
+                            value={character.species}
+                            onChange={handleChange}>
+                            {speciesOptions}
+                        </select>
+                    </div>
+                    <div className="form__element">
+                        <label htmlFor="origin">Origin</label>
+                        <select
+                            name="origin"
+                            id="origin"
+                            value={character.origin.name}
+                            onChange={handleOrigin}>
+                            {locations}
+                        </select>
+                    </div>
+                    <div className="form__element">
+                        <label htmlFor="image">Your character is </label>
+                        <select
+                            name="image"
+                            id="image"
+                            value={character.image}
+                            onChange={handleChange}>
+                            {imagesOptions}
+                        </select>
+                    </div>
+                    {creating ? <button type="submit">Adding...</button> :
+                        <button type="submit">Add Character</button>}
                 </form>
             }
         </section>
