@@ -18,6 +18,7 @@ html {
 
 body {
   background-color: #aee8ec;
+  font-size: 100%;
 }
 
 .flex-centered {
@@ -65,7 +66,8 @@ body {
   gap: 1rem;
 }
 img {
-  width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 .link {
   color: white;
@@ -86,8 +88,9 @@ img {
 
 .container {
   height: 50vh;
-  display: grid;
+  display: flex;
 }
+
 .title {
   height: 70vh;
   position: absolute;
@@ -99,6 +102,7 @@ img {
   color: #08bae3;
   z-index: 50;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+  flex-shrink: 1px;
 }
 .title span {
   font-size: 0.5em;
