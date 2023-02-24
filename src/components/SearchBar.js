@@ -40,7 +40,9 @@ const SearchBar = (props) => {
                             <td>{data.name}</td>
                         </tr>
                     </div>
+                    console.log(data);
                     return data
+
                 })}
             </table> */}
         </div>
