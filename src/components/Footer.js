@@ -33,15 +33,15 @@ const Footer = () => {
   return (
     <footer className='footer'>
         <div className='container'>
-            <div className='fotter-left'>
+            <div className='fotter-left center'>
             <a href="/"><FaHome/></a>
             </div> 
-            <div className='footer-center'>
+            <div className='footer-center center'>
                 Created by: {creatorLinks.map((creator) => (
                 <a href={creator.link} key={creator.name} target="_blank" rel="noopener noreferrer">{creator.name}</a>
                 ))}
             </div>
-            <div className='footer-right'>
+            <div className='footer-right center'>
                 <a href="https://www.youtube.com/watch?v=XxBuZMB-YZs&list=PLfpipp6KbWs4yvs7K287mBKxO7x7TSpvX" target="_blank" rel="noopener noreferrer"> <FaYoutube/></a>
                 <a href="https://www.instagram.com/rickandmortyrickstaverse/" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>
             </div>
