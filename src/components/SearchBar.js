@@ -1,20 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const SearchBar = (props) => {
     const { data } = props;
-
     const [searchInput, setSearchInput] = useState("");
+    const [found, setFound] = useState([]);
 
     const handleChange = (e) => {
         e.preventDefault();
-        setSearchInput(e.target.value);
+        setSearchInput(prevState => prevState = e.target.value);
     };
 
-    if (searchInput.length > 0) {
-        data.name.filter((data) => {
-            return data.name.match(searchInput);
-        });
-    }
+    useEffect(() => {
+        if (searchInput.length > 0) {
+            setFound(data.filter((character) => {
+                return character.name.match(searchInput);
+            }));
+            console.log(found); // remove when finish with displaying the match
+        }
+    }, [searchInput]);
 
     return (
         <div>
@@ -24,7 +27,7 @@ const SearchBar = (props) => {
                 onChange={handleChange}
                 value={searchInput} />
 
-            <table>
+            {/* <table>
                 <tr>
                     <th>Country</th>
                     <th>Continent</th>
@@ -39,8 +42,7 @@ const SearchBar = (props) => {
                     </div>
                     return data
                 })}
-            </table>
-
+            </table> */}
         </div>
     )
 
