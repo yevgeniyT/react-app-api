@@ -4,9 +4,16 @@ import { Link } from 'react-router-dom';
 import {FaBan} from 'react-icons/fa';
 
 const Character = (props) => {
-    const { character } = props;
+    const { character, getId } = props;
+
+
+const handleCahacterDelete = (id,e) =>{
+    e.preventDefault();
+getId(id)
+}
+
     return (
-        <article className="character">
+        <div className="character">
             <Link className='link' to={`/characters/${character.id}`}>
                 <img className="character__img" src={character.image} alt="Rick and Morty" />
                 <div className="character__details">
@@ -18,17 +25,14 @@ const Character = (props) => {
                             <p className="character__origin">Origin: {character.origin.name}</p>
                         </div>
                         <div>
-                             <button>
-                             DELETE {FaBan}
+                             <button onClick={(e)=>{handleCahacterDelete(character.id, e )}}>
+                             <FaBan/>
                              </button>
                         </div>
                     </div>
-
                 </div>
-               
             </Link>
-
-        </article>
+        </div>
     );
 }
 
