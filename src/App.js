@@ -1,5 +1,5 @@
 import './App.css';
-import {useNavigate, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from './components/Home';
@@ -36,7 +36,7 @@ function App() {
         {data &&
           <main>
             <Routes>
-              <Route exact path='/' element={<Home data={characters} />} />
+              <Route path='/' element={<Home data={characters} />} />
               <Route path='/create' element={<NewCharacter onCreate={onCreate} />} />
               <Route path='characters/:id' element={<CharacterDetails/>} />
               <Route path='*' element={<NotFound />} />
