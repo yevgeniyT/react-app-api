@@ -56,6 +56,12 @@ img {
   font-size: 0.8rem;
   transition: all 0.3s;
 }
+.caracter__dsc {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
 .character:hover {
   transform: scale(1.1);
 }
