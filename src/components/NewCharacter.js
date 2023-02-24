@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import useFetch from "../services/useFetch";
 
 const NewCharacter = ({ onCreate }) => {
     const [character, setCharacter] = useState({
@@ -28,6 +29,8 @@ const NewCharacter = ({ onCreate }) => {
             return { ...prevState, [event.target.name]: event.target.value }
         });
     }
+
+    const {data:locations, error, isPending } = useFetch("locations");
 
     return (
         <section className="create">
