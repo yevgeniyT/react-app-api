@@ -35,10 +35,8 @@ function App() {
     <div className="page-content">
       <Router>
         <Header>
-          <SearchBar />
+          {data && <SearchBar data={data.results}/>}
         </Header>
-
-
 
         {isPending && <Loading />}
         {error && <Error message={error} />}
