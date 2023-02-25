@@ -31,6 +31,10 @@ function App() {
     });
   }
 
+  const handleDeleteCharacter = (id) =>{
+      setCharacters(characters.filter(character =>character.id !==id))
+  }
+  
   return (
     <div className="page-content">
       <Router>
@@ -43,7 +47,7 @@ function App() {
         {data &&
           <main>
             <Routes>
-              <Route path='/' element={<Home data={characters} />} />
+              <Route path='/' element={<Home data={characters} onDeleteCharacter = {handleDeleteCharacter} />} />
               <Route path='/create' element={<NewCharacter onCreate={onCreate} />} />
               <Route path='characters/:id' element={<CharacterDetails />} />
               <Route path='*' element={<NotFound />} />

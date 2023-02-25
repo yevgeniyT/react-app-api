@@ -1,6 +1,11 @@
 import CharactersList from './CharactersList';
 
-const Home = ({ data }) => {
+const Home = ({ data, onDeleteCharacter }) => {
+
+const getId = (id) => {
+    onDeleteCharacter(id)
+}
+
     return (
         <section className='home'>
             <div className="container">
@@ -9,7 +14,7 @@ const Home = ({ data }) => {
                 <div className="title middle"> Rick<span>and </span>Morty</div>
                 <div className="title bottom"> Rick<span>and </span>Morty</div>
             </div>
-            {data && <CharactersList data={data} />}
+            {data && <CharactersList data={data} getIdHome = {getId}/>}
         </section>);
 }
 
