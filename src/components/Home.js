@@ -1,5 +1,5 @@
 import CharactersList from './CharactersList';
-import { SearchNotFound } from './handlers';
+import { SearchNotFound } from '../components/handlers';
 
 const Home = ({ data, onDeleteCharacter, found}) => {
 
