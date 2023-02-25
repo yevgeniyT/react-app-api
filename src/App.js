@@ -8,7 +8,7 @@ import NewCharacter from './components/NewCharacter';
 import CharacterDetails from './components/CharacterDetails';
 import Footer from "./components/Footer";
 
-
+import { v4 as uuidv4 } from 'uuid';
 import useFetch from './services/useFetch';
 import { useState, useEffect } from 'react';
 import { Error, Loading, NotFound } from './components/handlers';
@@ -25,7 +25,7 @@ function App() {
   }, [data]);
 
   const onCreate = (character) => {
-    const newCharacter = { id: characters.length + 1, ...character, image: images.find(image => image.name === character.image).src };
+    const newCharacter = { id: uuidv4(), ...character, image: images.find(image => image.name === character.image).src };
     setCharacters(prevState => {
       return [...prevState, newCharacter];
     });
