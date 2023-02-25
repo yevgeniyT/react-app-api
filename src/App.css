@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap");
+
 :root {
   --border-radius: 0.6rem;
   --text-color: #fff;
@@ -10,6 +12,7 @@
   list-style-type: none;
   text-decoration: none;
   outline: none;
+  font-family: "Teko", sans-serif;
 }
 
 html {
@@ -18,13 +21,16 @@ html {
 
 body {
   background-color: #aee8ec;
-  font-size: 100%;
 }
 
 .flex-centered {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 /* header */
@@ -64,31 +70,34 @@ body {
   padding: 1rem;
   color: white;
   gap: 1rem;
+  width: 90vw;
+  margin: 0 auto;
 }
+
 img {
-  height: auto;
-  max-width: 100%;
+  width: 100%;
 }
+
 .link {
   color: white;
 }
+
 .character {
   background-color: #838380;
   color: white;
   padding: 0.6rem;
   border-radius: 0.6rem;
-  font-size: 0.8rem;
+  font-size: 1.6rem;
   transition: all 0.3s;
 }
+
 .character:hover {
   transform: scale(1.02);
 }
 
-/* title */
-
 .container {
-  height: 50vh;
-  display: flex;
+  height: 45vh;
+  display: grid;
 }
 
 .title {
@@ -102,8 +111,8 @@ img {
   color: #08bae3;
   z-index: 50;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
-  flex-shrink: 1px;
 }
+
 .title span {
   font-size: 0.5em;
 }
@@ -121,8 +130,8 @@ img {
 .portal {
   background-color: #66ba4f;
   box-shadow: 0px 0px 40px 10px #448c3f;
-  height: 60em;
-  width: 60em;
+  height: 65em;
+  width: 65em;
   border-radius: 50%;
   margin: auto;
   background: radial-gradient(circle at 77% 80%, #fdfeb4 2.5%, transparent 2.5%),
@@ -156,6 +165,7 @@ img {
     radial-gradient(circle at 79% 59%, transparent 40%, #fffe9c 37%),
     radial-gradient(circle at 50% 50%, #fdfeb4 100%, #fdfeb4 100%);
 }
+
 @font-face {
   font-family: "Get Schwifty";
   src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3089507/get-schwifty.woff")
@@ -164,7 +174,71 @@ img {
 
 /* create new character section */
 .create {
-  min-height: 80vh;
+  min-height: 70vh;
+  max-width: 70vw;
+  margin: 5vh auto;
+  background-color: #cfcfc6a6;
+  border-radius: 1rem;
+  padding: 1rem;
+  color: white;
+  background-image: url("./data/form-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 70% 100%;
+}
+
+.create__header {
+  min-height: 5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+form {
+  font-size: 1.4rem;
+  width: 65%;
+  height: 80%;
+  border-radius: 1rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form__element {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #b5edfc;
+  color: #262c3a;
+}
+
+form input,
+form select {
+  height: 3rem;
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  border: none;
+  color: #262c3a;
+  background-color: transparent;
+  text-align: left;
+  width: 98%;
+  border-bottom: 2px solid #262c3a;
+}
+
+form > button {
+  width: 60%;
+  height: 3.5rem;
+  font-family: "Get Schwifty";
+  font-size: 2rem;
+  color: white;
+  background-color: #262c3a;
+  border: none;
+}
+
+form > button:hover {
+  color: #b5edfc;
 }
 
 /* character details section */
@@ -175,13 +249,13 @@ img {
 /* footer starts */
 
 .footer {
-  height: 10vh;
+  min-height: 10vh;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
   gap: 1rem;
   background-color: #838380;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 .footer > div {
@@ -208,27 +282,113 @@ img {
 
 /* error */
 
-@media (max-width: 600px) {
-  .character {
-    grid-template-columns: 1;
-    padding: 80px;
-  }
+@media (max-width: 1200px) {
   .data {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-}
-@media (max-width: 768px) {
-  .character {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    padding: 55px;
+
+  .portal {
+    max-width: 50em;
+    max-height: 50em;
   }
-  .data {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  .create {
+    max-width: 80vw;
   }
 }
 
 @media (max-width: 962px) {
   .data {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .portal {
+    max-width: 45em;
+    max-height: 45em;
+  }
+
+  .container {
+    height: 35vh;
+  }
+
+  .title {
+    font-size: 7em;
+  }
+
+  .footer {
+    padding: 1rem 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-center {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .character {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .data {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portal {
+    max-width: 40em;
+    max-height: 40em;
+  }
+
+  .container {
+    height: 30vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .data {
+    width: 90vw;
+    margin: 0 auto;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  form {
+    width: 95%;
+    margin: 1rem auto;
+  }
+
+  .create {
+    background-image: none;
+    background-color: #262c3a;
+    padding: 1rem 0.5rem;
+  }
+
+  .portal {
+    max-width: 30em;
+    max-height: 30em;
+  }
+
+  .container {
+    height: 30vh;
+  }
+
+  .title {
+    font-size: 5em;
+  }
+
+  .footer > .footer-center {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .portal {
+    max-width: 25em;
+    max-height: 25em;
+  }
+
+  .title {
+    font-size: 4.5em;
   }
 }
