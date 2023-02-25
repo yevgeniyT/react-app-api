@@ -19,6 +19,7 @@ function App() {
   const { data, error, isPending } = useFetch("characters");
 
   const [characters, setCharacters] = useState([]);
+  const [found, setFound] = useState(true);
 
   useEffect(() => {
     setCharacters(data && data.results);
@@ -31,15 +32,24 @@ function App() {
     });
   }
 
-  const handleDeleteCharacter = (id) =>{
-      setCharacters(characters.filter(character =>character.id !==id))
+  const handleDeleteCharacter = (id) => {
+    setCharacters(characters.filter(character => character.id !== id))
   }
-  
+
+  const onSearch = (foundCharacters) => {
+    if (foundCharacters.length > 0) {
+      setCharacters(foundCharacters);
+      setFound(true);
+    } else if (foundCharacters.length === 0) {
+      setFound(false);
+    }
+  }
+
   return (
     <div className="page-content">
       <Router>
         <Header>
-          {data && <SearchBar data={data.results}/>}
+          {data && <SearchBar data={data.results} handler={onSearch} />}
         </Header>
 
         {isPending && <Loading />}
@@ -47,7 +57,9 @@ function App() {
         {data &&
           <main>
             <Routes>
-              <Route path='/' element={<Home data={characters} onDeleteCharacter = {handleDeleteCharacter} />} />
+              <Route path='/' element={
+                <Home data={characters} onDeleteCharacter={handleDeleteCharacter} found={found} />
+              } />
               <Route path='/create' element={<NewCharacter onCreate={onCreate} />} />
               <Route path='characters/:id' element={<CharacterDetails />} />
               <Route path='*' element={<NotFound />} />

@@ -107,7 +107,7 @@ button:hover {
 }
 
 .search-container:hover {
-  animation: hoverShake 0.15s linear 3;
+  /* animation: hoverShake 0.15s linear 3; */
 }
 
 /* links-router */
@@ -346,6 +346,17 @@ form > button:hover {
 /* loading */
 
 /* error */
+
+/* search not found */
+.search-not-found{
+  min-height: 60vh;
+  font-size: 3rem;
+  flex-direction: column;
+}
+
+.go-back{
+  
+}
 
 @media (max-width: 1200px) {
   .data {
