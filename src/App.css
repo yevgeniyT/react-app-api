@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap");
 
 :root {
   --border-radius: 0.6rem;
@@ -12,7 +12,7 @@
   list-style-type: none;
   text-decoration: none;
   outline: none;
-  font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
 }
 
 html {
@@ -40,13 +40,77 @@ button:hover {
   justify-content: space-between;
 }
 
-.search-bar {
-  /* DUMMY STYLE */
-  width: 20%;
-  height: 40%;
-  background-color: #6caaaf;
+/* search-bar */
+.search-body {
+  margin: 0;
+  padding: 0;
+  background-color: #aee8ec;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.search-container {
+  background: #fff;
+  height: 30px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.8s;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    inset -7px -7px 10px 0px rgba(0, 0, 0, 0.1),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.3),
+    -4px -4px 6px rgba(116, 125, 136, 0.2);
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+}
+
+.search-container:hover > .search-input {
+  width: 400px;
+}
+
+.search-container .search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 0px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 0.8s;
+}
+
+.fas {
+  margin-top: 8px;
+}
+
+.search-container .search-btn .fas {
+  color: #5cbdbb;
+}
+
+@keyframes hoverShake {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+  25% {
+    transform: skew(5deg, 5deg);
+  }
+  75% {
+    transform: skew(-5deg, -5deg);
+  }
+  100% {
+    transform: skew(0deg, 0deg);
+  }
+}
+
+.search-container:hover {
+  animation: hoverShake 0.15s linear 3;
+}
+
+/* links-router */
 .route {
   font-family: "Get Schwifty";
   font-size: 2em;
@@ -55,7 +119,6 @@ button:hover {
   padding-left: 2rem;
   padding-top: 1rem;
 }
-
 
 /* characters section */
 .character__name {
@@ -116,6 +179,7 @@ img {
 
 .title span {
   font-size: 0.5em;
+  font-family: "Get Schwifty";
 }
 
 .title.middle {
@@ -169,7 +233,8 @@ img {
 
 @font-face {
   font-family: "Get Schwifty";
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3089507/get-schwifty.woff") format("woff");
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3089507/get-schwifty.woff")
+    format("woff");
 }
 
 /* create new character section */
@@ -181,11 +246,10 @@ img {
   border-radius: 1rem;
   padding: 1rem;
   color: white;
-  background-image: url('./data/form-background.jpg');
+  background-image: url("./data/form-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 70% 100%;
-  ;
 }
 
 .create__header {
@@ -206,48 +270,46 @@ form {
 .form__element {
   width: 80%;
   margin: 0 auto;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #B5EDFC;
-  color: #262C3A;
+  background-color: #b5edfc;
+  color: #262c3a;
 }
 
 form input,
 form select {
   height: 3rem;
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 1.6rem;
   border: none;
-  color: #262C3A;
+  color: #262c3a;
   background-color: transparent;
   text-align: left;
   width: 98%;
-  border-bottom: 2px solid #262C3A;
+  border-bottom: 2px solid #262c3a;
 }
 
-form>button {
+form > button {
   width: 60%;
   height: 3.5rem;
   font-family: "Get Schwifty";
   font-size: 2rem;
   color: white;
-  background-color: #262C3A;
+  background-color: #262c3a;
   border: none;
 }
 
-form>button:hover {
-  color: #B5EDFC;
+form > button:hover {
+  color: #b5edfc;
 }
 
 /* character details section */
 .details {
   min-height: 80vh;
 }
-
-
 
 /* footer starts */
 
@@ -261,7 +323,7 @@ form>button:hover {
   font-size: 1.6rem;
 }
 
-.footer>div {
+.footer > div {
   gap: 1rem;
 }
 
@@ -283,7 +345,6 @@ form>button:hover {
 
 /* loading */
 
-
 /* error */
 
 @media (max-width: 1200px) {
@@ -299,7 +360,6 @@ form>button:hover {
   .create {
     max-width: 80vw;
   }
-
 }
 
 @media (max-width: 962px) {
@@ -325,12 +385,10 @@ form>button:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .footer-center{
+  .footer-center {
     grid-column: 1 / span 2;
     grid-row: 2;
   }
-
-
 }
 
 @media (max-width: 768px) {
@@ -353,7 +411,6 @@ form>button:hover {
 }
 
 @media (max-width: 600px) {
-
   .data {
     width: 90vw;
     margin: 0 auto;
@@ -367,8 +424,8 @@ form>button:hover {
 
   .create {
     background-image: none;
-    background-color: #262C3A;
-    padding: 1rem .5rem;
+    background-color: #262c3a;
+    padding: 1rem 0.5rem;
   }
 
   .portal {
@@ -384,14 +441,13 @@ form>button:hover {
     font-size: 5em;
   }
 
-  .footer > .footer-center{
+  .footer > .footer-center {
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
   }
 }
 
 @media (max-width: 450px) {
-
   .portal {
     max-width: 25em;
     max-height: 25em;
@@ -400,5 +456,4 @@ form>button:hover {
   .title {
     font-size: 4.5em;
   }
-
 }

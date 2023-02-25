@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import {FaBan} from 'react-icons/fa';
+import { FaBan } from 'react-icons/fa';
 
 const Character = (props) => {
     const { character, getId } = props;
 
 
-const handleCahacterDelete = (id,e) =>{
-    e.preventDefault();
-getId(id)
-}
+    const handleCharacterDelete = (id, e) => {
+        e.preventDefault();
+        getId(id)
+    }
 
     return (
         <div className="character">
@@ -25,9 +25,9 @@ getId(id)
                             <p className="character__origin">Origin: {character.origin.name}</p>
                         </div>
                         <div>
-                             <button onClick={(e)=>{handleCahacterDelete(character.id, e )}}>
-                             <FaBan/>
-                             </button>
+                            <button onClick={(e) => { handleCharacterDelete(character.id, e) }}>
+                                <FaBan />
+                            </button>
                         </div>
                     </div>
                 </div>
