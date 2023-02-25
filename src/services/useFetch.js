@@ -29,6 +29,7 @@ const useFetch = (getData) => {
             const json = await response.json();
             setData(json);
             setIsPending(false);
+            console.log(json);
         } catch (error) {
             setError(error.message);
             setIsPending(false);
