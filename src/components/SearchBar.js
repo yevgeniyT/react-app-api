@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { FaSearch } from 'react-icons/fa';
 
 const SearchBar = (props) => {
     const { data } = props;
@@ -15,36 +16,28 @@ const SearchBar = (props) => {
             setFound(data.filter((character) => {
                 return character.name.match(searchInput);
             }));
-            console.log(found); // remove when finish with displaying the match
+            console.log(found);
         }
     }, [searchInput]);
 
+
     return (
-        <div>
-            <input
-                type="text"
-                placeholder="Search here"
-                onChange={handleChange}
-                value={searchInput} />
 
-            {/* <table>
-                <tr>
-                    <th>Country</th>
-                    <th>Continent</th>
-                </tr>
+        <div className='search-body'>
+            <div className='search-container'>
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search..."
+                    onChange={handleChange}
+                    value={searchInput}
+                    className="search-input"
 
-                {data.map((data) => {
-
-                    <div>
-                        <tr>
-                            <td>{data.name}</td>
-                        </tr>
-                    </div>
-                    console.log(data);
-                    return data
-
-                })}
-            </table> */}
+                />
+                <a href="#" className="search-btn">
+                    <FaSearch className='fas' />
+                </a>
+            </div>
         </div>
     )
 
