@@ -1,55 +1,42 @@
 import { useParams } from "react-router-dom";
 
-const CharacterDetails = () => {
+const CharacterDetails = ({ data }) => {
     const { id } = useParams();
-
-    //     return (
-    //         <section className="details">
-    //             I am details about character {id}
-    //         </section>
-    //     );
-    // }
-
+    const index = data.findIndex(character => character.id === parseInt(id));
     return (
-        <div className="character">
-            <div>
-                <img alt="Rick and Morty" />
-                <div className="character__details">
-                    <h4 className="character__name">id Name: </h4>
-                    <div className='caracter__dsc'>
-                        <p>created at: </p>
-                        <p className="character__status">Status:</p>
-                        <p className="character__species">Species:</p>
-                        <p>Gender</p>
-                        <p>Tepe</p>
-                        <a href="/">Origin name:</a>
-                        <a href="/">Lacation name</a>
+        <section className="details flex-centered">
+            <div className="character-ditails">
+                <div>
+                    <h4 className="ditails__header">{data[index].name}</h4>
+                </div>
+                <div className="conteiner__col character">
+                    <img className="character__img" src={data[index].image} alt="Rick and Morty" />
+                    <div className='character__dsc'>
+                        <div className="col-75 type">
+                            {["Ditaild information:",
+                                `createrd at: ${data[index].created}`,
+                                `Status: ${data[index].status}`,
+                                `Species: ${data[index].species}`,
+                                `Gender: ${data[index].gender}`,
+                                `Type: ${data[index].type}`].map((text, index) => (
+                                    <p className="typed" style={{ animationDelay: `${index * 1}s` }}>{text}</p>))}
+                        </div>
+
+                        <div className="conteiner__col col-25" >
+                            <div>
+                                <p>Origin:</p>
+                                <a className="character__link" href={data[index].origin.url}>{data[index].origin.name}</a>
+                            </div>
+                            <div>
+                                <p>Current location:</p>
+                                <a className="character__link" href={data[index].location.url}>{data[index].location.name}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 
 export default CharacterDetails;
-
-
-
-
-
-    // "origin": {
-    //   "name": "Earth",
-    //   "url": "https://rickandmortyapi.com/api/location/1"
-
-    // "location": {
-    //   "name": "Earth",
-    //   "url": "https://rickandmortyapi.com/api/location/20"
-
-    // // "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-    // "episode": [
-    //   "https://rickandmortyapi.com/api/episode/1",
-    //   "https://rickandmortyapi.com/api/episode/2",
-    //   // ...
-    // ],
-    // "url": "https://rickandmortyapi.com/api/character/2",
-    //  }

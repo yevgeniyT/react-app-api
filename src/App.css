@@ -306,11 +306,79 @@ form > button:hover {
   color: #b5edfc;
 }
 
+/*charecter cimponent*/
+
+.character__conteiner {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ .shot svg{
+  font-size: 2.5rem;
+  margin-right:1rem;
+ } 
+
+ .shot:hover svg {
+  transform: scale(1.2);
+  transition: 0.3s;
+ 
+}
 /* character details section */
+.ditails__header{
+  text-align: center;
+  margin: 1rem 0;
+  color: white;
+  font-size: 4rem;
+
+}
+
+.character__link {
+  text-decoration: none;
+  color: orange;
+}
+.character__link :visited{
+  color: orange;
+}
+
+character__link :hover{
+  transform: scale(1.2);
+  transition: 0.3s;
+}
 .details {
   min-height: 80vh;
 }
+.character-ditails {
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  }
 
+.conteiner__col{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:1rem;
+}
+.character__dsc{
+  display:grid;
+  grid-template-rows: 3fr 1fr;
+}
+.type{
+  display: inline-block;
+}
+.typed {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing;
+  animation-duration: 1.5s;
+  animation-timing-function: steps(30,end);
+  animation-fill-mode:forwards;
+}
+@keyframes typing {
+  from {width: 0} to {width: 100%}
+}
 /* footer starts */
 
 .footer {
