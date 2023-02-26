@@ -6,7 +6,6 @@ const SearchBar = (props) => {
     const [searchInput, setSearchInput] = useState("");
 
     const handleChange = (e) => {
-        e.preventDefault();
         setSearchInput(prevState => prevState = e.target.value);
     };
 
@@ -15,7 +14,6 @@ const SearchBar = (props) => {
             return character.name.match(searchInput);
         }));
     }, [searchInput]);
-
 
     return (
         <div className='search-body'>

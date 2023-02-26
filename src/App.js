@@ -17,14 +17,13 @@ function App() {
   const { data, error, isPending } = useFetch("characters");
 
   const [characters, setCharacters] = useState([]);
-  const [found, setFound] = useState(true);
 
   useEffect(() => {
     setCharacters(data && data.results);
   }, [data]);
 
   const onCreate = (character) => {
-    const newCharacter = { id: uuidv4(), ...character};
+    const newCharacter = { id: uuidv4(), ...character };
     setCharacters(prevState => {
       return [...prevState, newCharacter];
     });
@@ -34,32 +33,32 @@ function App() {
     setCharacters(characters.filter(character => character.id !== id))
   }
 
-  const onSearch = (foundCharacters) => {
-    if (foundCharacters.length > 0) {
-      setCharacters(foundCharacters);
-      setFound(true);
-    } else if (foundCharacters.length === 0) {
-      setFound(false);
-    }
-  }
+  // const onSearch = (foundCharacters) => {
+  //   if (foundCharacters.length > 0) {
+  //     setCharacters(foundCharacters);
+  //     setFound(true);
+  //   } else if (foundCharacters.length === 0) {
+  //     setFound(false);
+  //   }
+  // }
 
   return (
     <div className="page-content">
       <Router>
         <Header>
-          {data && <SearchBar data={data.results} handler={onSearch} />}
+          {/* {data && <SearchBar data={data.results} handler={onSearch} />} */}
         </Header>
 
         {isPending && <Loading />}
         {error && <Error message={error} />}
-        {data &&
+        {characters &&
           <main>
             <Routes>
               <Route path='/' element={
-                <Home data={characters} onDeleteCharacter={handleDeleteCharacter} found={found} />
+                <Home data={characters} onDeleteCharacter={handleDeleteCharacter} />
               } />
               <Route path='/create' element={<NewCharacter onCreate={onCreate} />} />
-              <Route path='characters/:id' element={<CharacterDetails data={characters}/>} />
+              <Route path='characters/:id' element={<CharacterDetails data={characters} />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </main>}

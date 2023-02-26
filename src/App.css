@@ -38,18 +38,19 @@ input[type="radio"]:hover {
 .header {
   height: 10vh;
   padding: 0 1rem;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 /* search-bar */
 .search-body {
-  margin: 0;
-  padding: 0;
   background-color: #aee8ec;
-  height: 100vh;
+  height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 }
 
 .search-container {
@@ -71,7 +72,7 @@ input[type="radio"]:hover {
 }
 
 .search-container:hover > .search-input {
-  width: 400px;
+  width: 15rem;
 }
 
 .search-container .search-input {
@@ -92,23 +93,12 @@ input[type="radio"]:hover {
   color: #5cbdbb;
 }
 
-@keyframes hoverShake {
-  0% {
-    transform: skew(0deg, 0deg);
-  }
-  25% {
-    transform: skew(5deg, 5deg);
-  }
-  75% {
-    transform: skew(-5deg, -5deg);
-  }
-  100% {
-    transform: skew(0deg, 0deg);
-  }
+.create__then {
+  color: #076479;
 }
 
-.search-container:hover {
-  /* animation: hoverShake 0.15s linear 3; */
+.create__then:hover {
+  color: #5cbdbb;
 }
 
 /* links-router */
@@ -164,7 +154,7 @@ img {
   height: 45vh;
   display: grid;
 }
-
+/* title */
 .title {
   height: 70vh;
   position: absolute;
@@ -280,7 +270,7 @@ form {
   color: #262c3a;
 }
 
-form img{
+form img {
   width: 80%;
   min-height: auto;
   margin: 0 auto;
@@ -299,57 +289,57 @@ form select {
   border-bottom: 2px solid #262c3a;
 }
 .radio-row {
-  gap: .8rem;
+  gap: 0.8rem;
 }
 
-.radio-element input{
+.radio-element input {
   width: 2rem;
 }
 
-.radio-element input:checked{
+.radio-element input:checked {
   accent-color: #262c3a;
 }
 
-.radio-element label{
+.radio-element label {
   font-size: 1.5rem;
 }
-.radio-element input[type='file']{
+.radio-element input[type="file"] {
   width: 98%;
 }
 
-.form__upload{
+.form__upload {
   display: none;
 }
 
-#upload-label{
+#upload-label {
   margin: 0 auto;
 }
-.upload-logo-alternative{
+.upload-logo-alternative {
   display: block;
-  transition: color .2s linear;
+  transition: color 0.2s linear;
 }
 
-.upload-logo-alternative:hover{
+.upload-logo-alternative:hover {
   cursor: pointer;
-  color: #4A4762;
+  color: #4a4762;
 }
 
-.upload-logo{
+.upload-logo {
   font-size: 10rem;
   filter: drop-shadow(16px 16px 20px red) invert(75%);
   animation: heart-beat 1s infinite alternate ease-in;
 }
 
 @keyframes heart-beat {
-  from{
+  from {
     transform: scale(1);
   }
-  to{
+  to {
     transform: scale(1.1);
   }
 }
 
-.upload-logo:hover{
+.upload-logo:hover {
   cursor: pointer;
 }
 
@@ -360,7 +350,6 @@ form select {
 .disabled-logo:hover {
   cursor: default;
 }
-
 
 form > button {
   width: 60%;
@@ -376,52 +365,50 @@ form > button:hover {
   color: #b5edfc;
 }
 
-.name-valid{
+.name-valid {
   box-shadow: none;
 }
 
-.name-invalid{
+.name-invalid {
   box-shadow: 1px 1px 15px red;
 }
-.name-invalid::after{
+.name-invalid::after {
   content: "Name should consist of at least 3 characters";
 }
 
 /*charecter cimponent*/
 
 .character__conteiner {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
- .shot svg{
+.shot svg {
   font-size: 2.5rem;
-  margin-right:1rem;
- } 
+  margin-right: 1rem;
+}
 
- .shot:hover svg {
+.shot:hover svg {
   transform: scale(1.2);
   transition: 0.3s;
- 
 }
 /* character details section */
-.ditails__header{
+.ditails__header {
   text-align: center;
   margin: 1rem 0;
   color: white;
   font-size: 4rem;
-
 }
 
 .character__link {
   text-decoration: none;
   color: orange;
 }
-.character__link :visited{
+.character__link :visited {
   color: orange;
 }
 
-.character__link :hover{
+.character__link :hover {
   transform: scale(1.2);
   transition: 0.3s;
 }
@@ -436,16 +423,16 @@ form > button:hover {
   gap: 2rem;
 }
 
-.container__col{
+.container__col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap:1rem;
+  gap: 1rem;
 }
-.character__dsc{
-  display:grid;
+.character__dsc {
+  display: grid;
   grid-template-rows: 3fr 1fr;
 }
-.type{
+.type {
   display: inline-block;
 }
 .typed {
@@ -454,14 +441,19 @@ form > button:hover {
   width: 0;
   animation: typing;
   animation-duration: 1.5s;
-  animation-timing-function: steps(30,end);
-  animation-fill-mode:forwards;
+  animation-timing-function: steps(30, end);
+  animation-fill-mode: forwards;
 }
 @keyframes typing {
-  from {width: 0} to {width: 100%}
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
-.details .character:hover{
+.details .character:hover {
   transform: none;
 }
 /* footer starts */
@@ -496,11 +488,11 @@ form > button:hover {
   color: #aee8ec;
 }
 
-/* loading */ 
+/* loading */
 /* error */
 .loading,
 .error,
-.not-found{
+.not-found {
   min-height: 80vh;
   flex-direction: column;
   gap: 2rem;
@@ -508,33 +500,32 @@ form > button:hover {
 
 .loading__logo,
 .error__logo,
-.not-found__logo{
+.not-found__logo {
   width: 10rem;
   min-height: auto;
 }
 
-
 .loading__body,
 .error__body,
-.not-found__body{
+.not-found__body {
   font-size: 1.5rem;
 }
 
-.not-found > a{
+.not-found > a {
   font-size: 1.8rem;
-  color:#262c3a;
-  padding: .2rem .7rem;
+  color: #262c3a;
+  padding: 0.2rem 0.7rem;
   border-radius: var(--border-radius);
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 }
 
-.not-found > a:hover{
-  background-color:#262c3a;
+.not-found > a:hover {
+  background-color: #262c3a;
   color: #aee8ec;
 }
 
-.blinking{
-  animation: blink .5s linear infinite;
+.blinking {
+  animation: blink 0.5s linear infinite;
 }
 
 @keyframes blink {
@@ -547,14 +538,10 @@ form > button:hover {
 }
 
 /* search not found */
-.search-not-found{
+.search-not-found {
   min-height: 60vh;
   font-size: 3rem;
   flex-direction: column;
-}
-
-.go-back{
-  
 }
 
 @media (max-width: 1200px) {
@@ -606,6 +593,10 @@ form > button:hover {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
+  .search-container:hover > .search-input {
+    width: 10rem;
+  }
+
   .data {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -625,6 +616,10 @@ form > button:hover {
     width: 90vw;
     margin: 0 auto;
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .search-container:hover > .search-input {
+    width: 8rem;
   }
 
   form {
@@ -659,11 +654,36 @@ form > button:hover {
 
 @media (max-width: 450px) {
   .portal {
-    max-width: 25em;
-    max-height: 25em;
+    max-width: 20em;
+    max-height: 20em;
   }
 
   .title {
     font-size: 4.5em;
+    top: 20vh;
+  }
+
+  .search-container:hover > .search-input {
+    width: 5rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .portal {
+    max-width: 17em;
+    max-height: 17em;
+  }
+
+  .title {
+    font-size: 4em;
+    top: 15vh;
+  }
+
+  .route{
+    font-size: 1.5rem;
+  }
+
+  .search-container:hover > .search-input {
+    width: 3rem;
   }
 }
