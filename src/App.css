@@ -38,19 +38,19 @@ input[type="radio"]:hover {
 .header {
   height: 10vh;
   padding: 0 1rem;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 /* search-bar */
 .search-body {
-  margin: 0;
-  padding: 0;
   background-color: #aee8ec;
-  /* height: 100vh; */
-  height: 10vh;
+  height: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 }
 
 .search-container {
@@ -654,15 +654,36 @@ form > button:hover {
 
 @media (max-width: 450px) {
   .portal {
-    max-width: 25em;
-    max-height: 25em;
+    max-width: 20em;
+    max-height: 20em;
   }
 
   .title {
     font-size: 4.5em;
+    top: 20vh;
   }
 
   .search-container:hover > .search-input {
     width: 5rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .portal {
+    max-width: 17em;
+    max-height: 17em;
+  }
+
+  .title {
+    font-size: 4em;
+    top: 15vh;
+  }
+
+  .route{
+    font-size: 1.5rem;
+  }
+
+  .search-container:hover > .search-input {
+    width: 3rem;
   }
 }

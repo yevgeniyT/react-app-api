@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import CharactersList from './CharactersList';
 import { SearchNotFound } from '../components/handlers';
-import { FaSearch } from 'react-icons/fa';
 import SearchBar from './SearchBar'
 
-const Home = ({ data, onDeleteCharacter, handler }) => {
+const Home = ({ data, onDeleteCharacter }) => {
 
     const getId = (id) => {
         onDeleteCharacter(id)
@@ -12,14 +11,12 @@ const Home = ({ data, onDeleteCharacter, handler }) => {
 
     const [characters, setCharacters] = useState(data);
     const [found, setFound] = useState(true);
-
+    
     useEffect(() => {
-        // setCharacters(data && data);
-        console.log(data)
+        setCharacters(data);
     }, [data]);
 
     const onSearch = (foundCharacters) => {
-        console.log(foundCharacters);
         if (foundCharacters.length > 0) {
             setCharacters(foundCharacters);
             setFound(true);
@@ -31,7 +28,7 @@ const Home = ({ data, onDeleteCharacter, handler }) => {
     return (
         <section className='home'>
             <div className="search-bar">
-                {characters && <SearchBar data={characters} handler={onSearch} />}
+                {characters && <SearchBar data={data} handler={onSearch} />}
             </div>
             <div className="container">
                 <div className="portal"></div>

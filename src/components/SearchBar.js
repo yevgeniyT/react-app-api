@@ -7,7 +7,6 @@ const SearchBar = (props) => {
 
     const handleChange = (e) => {
         setSearchInput(prevState => prevState = e.target.value);
-        console.log(searchInput);
     };
 
     useEffect(() => {
