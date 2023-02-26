@@ -70,7 +70,7 @@ button:hover {
 }
 
 .search-container:hover > .search-input {
-  width: 400px;
+  width: 170px;
 }
 
 .search-container .search-input {
@@ -91,23 +91,12 @@ button:hover {
   color: #5cbdbb;
 }
 
-@keyframes hoverShake {
-  0% {
-    transform: skew(0deg, 0deg);
-  }
-  25% {
-    transform: skew(5deg, 5deg);
-  }
-  75% {
-    transform: skew(-5deg, -5deg);
-  }
-  100% {
-    transform: skew(0deg, 0deg);
-  }
+.create__then {
+  color: #076479;
 }
 
-.search-container:hover {
-  /* animation: hoverShake 0.15s linear 3; */
+.create__then:hover {
+  color: #5cbdbb;
 }
 
 /* links-router */
@@ -163,7 +152,7 @@ img {
   height: 45vh;
   display: grid;
 }
-
+/* title */
 .title {
   height: 70vh;
   position: absolute;
@@ -306,41 +295,39 @@ form > button:hover {
   color: #b5edfc;
 }
 
-/*charecter cimponent*/
+/*character component*/
 
 .character__conteiner {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
- .shot svg{
+.shot svg {
   font-size: 2.5rem;
-  margin-right:1rem;
- } 
+  margin-right: 1rem;
+}
 
- .shot:hover svg {
+.shot:hover svg {
   transform: scale(1.2);
   transition: 0.3s;
- 
 }
 /* character details section */
-.ditails__header{
+.ditails__header {
   text-align: center;
   margin: 1rem 0;
   color: white;
   font-size: 4rem;
-
 }
 
 .character__link {
   text-decoration: none;
   color: orange;
 }
-.character__link :visited{
+.character__link :visited {
   color: orange;
 }
 
-.character__link :hover{
+.character__link :hover {
   transform: scale(1.2);
   transition: 0.3s;
 }
@@ -355,16 +342,16 @@ form > button:hover {
   gap: 2rem;
 }
 
-.container__col{
+.container__col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap:1rem;
+  gap: 1rem;
 }
-.character__dsc{
-  display:grid;
+.character__dsc {
+  display: grid;
   grid-template-rows: 3fr 1fr;
 }
-.type{
+.type {
   display: inline-block;
 }
 .typed {
@@ -373,11 +360,16 @@ form > button:hover {
   width: 0;
   animation: typing;
   animation-duration: 1.5s;
-  animation-timing-function: steps(30,end);
-  animation-fill-mode:forwards;
+  animation-timing-function: steps(30, end);
+  animation-fill-mode: forwards;
 }
 @keyframes typing {
-  from {width: 0} to {width: 100%}
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 /* footer starts */
 
@@ -411,11 +403,11 @@ form > button:hover {
   color: #aee8ec;
 }
 
-/* loading */ 
+/* loading */
 /* error */
 .loading,
 .error,
-.not-found{
+.not-found {
   min-height: 80vh;
   flex-direction: column;
   gap: 2rem;
@@ -423,33 +415,32 @@ form > button:hover {
 
 .loading__logo,
 .error__logo,
-.not-found__logo{
+.not-found__logo {
   width: 10rem;
   min-height: auto;
 }
 
-
 .loading__body,
 .error__body,
-.not-found__body{
+.not-found__body {
   font-size: 1.5rem;
 }
 
-.not-found > a{
+.not-found > a {
   font-size: 1.8rem;
-  color:#262c3a;
-  padding: .2rem .7rem;
+  color: #262c3a;
+  padding: 0.2rem 0.7rem;
   border-radius: var(--border-radius);
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 }
 
-.not-found > a:hover{
-  background-color:#262c3a;
+.not-found > a:hover {
+  background-color: #262c3a;
   color: #aee8ec;
 }
 
-.blinking{
-  animation: blink .5s linear infinite;
+.blinking {
+  animation: blink 0.5s linear infinite;
 }
 
 @keyframes blink {
@@ -461,17 +452,11 @@ form > button:hover {
   }
 }
 
-
-
 /* search not found */
-.search-not-found{
+.search-not-found {
   min-height: 60vh;
   font-size: 3rem;
   flex-direction: column;
-}
-
-.go-back{
-  
 }
 
 @media (max-width: 1200px) {

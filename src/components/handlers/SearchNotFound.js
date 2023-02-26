@@ -1,16 +1,16 @@
+import { Link } from "react-router-dom";
 
 const SearchNotFound = () => {
 
-    const handleClick = () => {
-        console.log('supposed to go back');
-    }
-
-    return ( 
+    return (
         <section className="search-not-found flex-centered">
             <p>We don't have such character yet...</p>
-            <button onClick={handleClick} className="go-back">Go back</button>
+            <div className='footer-left flex-centered'>
+                <Link to="/" className="create__then">Create then!</Link>
+            </div>
         </section>
-     );
+    );
 }
- 
+
 export default SearchNotFound;
+

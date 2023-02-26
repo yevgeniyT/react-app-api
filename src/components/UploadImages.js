@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const UploadImages = ({onUpload}) => {
+const UploadImages = ({ onUpload }) => {
     const [images, setImages] = useState([]);
     const [imageURLs, setImageURLs] = useState([]);
 
@@ -9,7 +9,7 @@ const UploadImages = ({onUpload}) => {
         const newImageURLs = [];
         images.forEach(image => newImageURLs.push(URL.createObjectURL(image)))
         setImageURLs(newImageURLs);
-    }, [images]); 
+    }, [images]);
 
     useEffect(() => {
         onUpload(imageURLs[0]);
@@ -21,10 +21,10 @@ const UploadImages = ({onUpload}) => {
 
     return (
         <>
-            <input className="form__element" type="file" 
-                accept="image/*" onChange={onImageChange} 
-                />
-             {imageURLs.length > 0 && <img src={imageURLs[0]} alt="Profile" />}
+            <input className="choose__file" type="file"
+                accept="image/*" onChange={onImageChange}
+            />
+            {imageURLs.length > 0 && <img src={imageURLs[0]} alt="Profile" />}
         </>
     )
 }
