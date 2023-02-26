@@ -18,7 +18,7 @@ getId(id)
                 <img className="character__img" src={character.image} alt="Rick and Morty" />
                 <div className="character__details">
                     <h4 className="character__name">{character.name}</h4>
-                    <div className='xxxx'>
+                    <div className='character__conteiner'>
                         <div>
                             <p className="character__status">Status: {character.status}</p>
                             <p className="character__species">Species: {character.species}</p>

@@ -244,7 +244,7 @@ form>button:hover {
 
 /*charecter cimponent*/
 
-.xxxx {
+.character__conteiner {
   display:flex;
   justify-content: space-between;
   align-items: center;
@@ -260,12 +260,32 @@ form>button:hover {
  
 }
 /* character details section */
+.ditails__header{
+  text-align: center;
+  margin: 1rem 0;
+  color: white;
+  font-size: 4rem;
+
+}
+
+.character__link {
+  text-decoration: none;
+  color: orange;
+}
+.character__link :visited{
+  color: orange;
+}
+
+character__link :hover{
+  transform: scale(1.2);
+  transition: 0.3s;
+}
 .details {
   min-height: 80vh;
 }
 .character-ditails {
-  width: 70%;
-  height: 60%;
+  width: 60%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
