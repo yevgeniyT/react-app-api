@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 const Header = (props) => {
     return (
         <header className="header flex-centered">
-            <div className="search-bar">
+            {/* <div className="search-bar">
                 {props.children}
-            </div>
+            </div> */}
             <nav>
                 <Link className="route" to='/'>Home</Link>
                 <Link className="route" to='/create'>Create</Link>

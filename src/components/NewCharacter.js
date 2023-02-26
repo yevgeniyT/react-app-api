@@ -89,7 +89,7 @@ const NewCharacter = ({ onCreate }) => {
 
     const handleRadio = (event) => {
         event.stopPropagation();
-        if(event.target.value === 'custom'){
+        if (event.target.value === 'custom') {
             setIsCustomImage(true);
         } else {
             setIsCustomImage(false);
@@ -102,17 +102,17 @@ const NewCharacter = ({ onCreate }) => {
     return (
         <section className="create">
             <h2 className="create__header flex-centered">Expand the Universe of Rick and Morty!</h2>
-            {isPending && <Loading />}
-            {error ? <Error message={error.message} /> :
+            {error && <Error message={error.message} />}
+            {isPending ? <Loading /> :
                 <form onSubmit={handleSubmit} className="flex-centered">
                     <div className="form__element radio-element">
-                        <UploadImages onUpload={handleUpload} isDisabled={isCustomImage}/>
+                        <UploadImages onUpload={handleUpload} isDisabled={isCustomImage} />
                         <div className="radio-row flex-centered">
-                            <input type="radio" id="custom-image" name="type-image" value="custom" onChange={handleRadio} checked={isCustomImage}/>
+                            <input type="radio" id="custom-image" name="type-image" value="custom" onChange={handleRadio} checked={isCustomImage} />
                             <label htmlFor="custom-image">Yes, I have a photo of this character</label>
                         </div>
                         <div className="radio-row flex-centered">
-                            <input type="radio" id="default-image" name="type-image" value="default" onChange={handleRadio} checked={!isCustomImage}/>
+                            <input type="radio" id="default-image" name="type-image" value="default" onChange={handleRadio} checked={!isCustomImage} />
                             <label htmlFor="default-image">No, I don't have a photo of this character</label>
                         </div>
                     </div>
