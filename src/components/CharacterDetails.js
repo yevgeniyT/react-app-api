@@ -1,4 +1,5 @@
 import {useParams } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
 const CharacterDetails = ({data}) => {
     const { id } = useParams();
@@ -19,17 +20,17 @@ const CharacterDetails = ({data}) => {
                             `Species: ${data[index].species}`,
                             `Gender: ${data[index].gender}`,
                             `Type: ${data[index].type}`].map((text, index) => (
-                            <p className="typed" style={{animationDelay: `${index * 1}s`}}>{text}</p> ))}
+                            <p key={uuidv4()} className="typed" style={{animationDelay: `${index * 1}s`}}>{text}</p> ))}
                         </div>
 
                         <div className="conteiner__col col-25" >
                             <div>
                                 <p>Origin:</p>
-                                <a className="character__link"  href={data[index].origin.url}>{data[index].origin.name}</a>
+                                <p className="character__link">{data[index].origin.name}</p>
                             </div>
                             <div>
                                 <p>Current location:</p>
-                                <a className="character__link" href={data[index].location.url}>{data[index].location.name}</a>
+                                <p className="character__link">{data[index].location.name}</p>
                             </div>
                         </div>
                     </div>
