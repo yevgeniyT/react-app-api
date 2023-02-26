@@ -6,7 +6,7 @@ const SearchNotFound = () => {
         <section className="search-not-found flex-centered">
             <p>We don't have such character yet...</p>
             <div className='footer-left flex-centered'>
-                <Link to="/" className="create__then">Create then!</Link>
+                <Link to="/create" className="create__then">Create then!</Link>
             </div>
         </section>
     );
