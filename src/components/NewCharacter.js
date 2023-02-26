@@ -6,9 +6,14 @@ import { species, status } from "../data/data";
 import { Loading, Error } from "./handlers";
 import UploadImages from "./UploadImages";
 
+
+const nameLength = 3;
+
 const NewCharacter = ({ onCreate }) => {
+    const defaultAvatar = 'https://i.postimg.cc/WpMwFJtW/default-avatar.png';
+
     const initCharacter = {
-        image: 'man',
+        image: '',
         name: '',
         status: 'alive',
         species: 'human',
@@ -16,18 +21,18 @@ const NewCharacter = ({ onCreate }) => {
             name: 'unknown'
         },
     }
+
     const [character, setCharacter] = useState(initCharacter);
     const [creating, setCreating] = useState(false);
     const [nameValid, setNameValid] = useState('name-invalid');
-    const nameLength = 3;
 
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(nameValid === 'name-valid'){
+        if (nameValid === 'name-valid') {
             setCreating(true);
-            setTimeout(()=>{ // faking a post request
+            setTimeout(() => { // faking a post request
                 onCreate(character);
                 setCharacter(initCharacter);
                 setCreating(false);
@@ -37,7 +42,7 @@ const NewCharacter = ({ onCreate }) => {
     }
 
     const handleChange = (event) => {
-        if(event.target.value.length < nameLength){
+        if (event.target.value.length < nameLength) {
             setNameValid('name-invalid');
         } else {
             setNameValid('name-valid')
@@ -80,14 +85,36 @@ const NewCharacter = ({ onCreate }) => {
         });
     }
 
+    const [isCustomImage, setIsCustomImage] = useState(true);
+
+    const handleRadio = (event) => {
+        event.stopPropagation();
+        if(event.target.value === 'custom'){
+            setIsCustomImage(true);
+        } else {
+            setIsCustomImage(false);
+            setCharacter((prevState) => {
+                return { ...prevState, image: defaultAvatar }
+            });
+        }
+    }
+
     return (
         <section className="create">
             <h2 className="create__header flex-centered">Expand the Universe of Rick and Morty!</h2>
             {isPending && <Loading />}
             {error ? <Error message={error.message} /> :
                 <form onSubmit={handleSubmit} className="flex-centered">
-                    <div className={`form__element ${nameValid}`}>
-                        <UploadImages onUpload={handleUpload} />
+                    <div className="form__element radio-element">
+                        <UploadImages onUpload={handleUpload} isDisabled={isCustomImage}/>
+                        <div className="radio-row flex-centered">
+                            <input type="radio" id="custom-image" name="type-image" value="custom" onChange={handleRadio} checked={isCustomImage}/>
+                            <label htmlFor="custom-image">Yes, I have a photo of this character</label>
+                        </div>
+                        <div className="radio-row flex-centered">
+                            <input type="radio" id="default-image" name="type-image" value="default" onChange={handleRadio} checked={!isCustomImage}/>
+                            <label htmlFor="default-image">No, I don't have a photo of this character</label>
+                        </div>
                     </div>
                     <div className={`form__element ${nameValid}`}>
                         <label htmlFor="fullName">Name</label>
