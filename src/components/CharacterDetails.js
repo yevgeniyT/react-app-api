@@ -1,4 +1,5 @@
 import {useParams} from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
 
 const CharacterDetails = ({data}) => {
@@ -20,7 +21,7 @@ const CharacterDetails = ({data}) => {
                             `Species: ${data[index].species}`,
                             `Gender: ${data[index].gender}`,
                             `Type: ${data[index].type}`].map((text, index) => (
-                            <p className="typed" style={{animationDelay: `${index * 1}s`}}>{text}</p> ))}
+                            <p key={uuidv4()} className="typed" style={{animationDelay: `${index * 1}s`}}>{text}</p> ))}
                         </div>
 
                         <div className="container__col col-25" >
