@@ -61,7 +61,7 @@ function App() {
                 <Home data={characters} onDeleteCharacter={handleDeleteCharacter} found={found} />
               } />
               <Route path='/create' element={<NewCharacter onCreate={onCreate} />} />
-              <Route path='characters/:id' element={<CharacterDetails />} />
+              <Route path='characters/:id' element={<CharacterDetails data={characters}/>} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </main>}
