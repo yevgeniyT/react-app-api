@@ -306,6 +306,17 @@ form > button:hover {
   color: #b5edfc;
 }
 
+.name-valid{
+  box-shadow: none;
+}
+
+.name-invalid{
+  box-shadow: 1px 1px 15px red;
+}
+.name-invalid::after{
+  content: "Name should consist of at least 3 characters";
+}
+
 /*charecter cimponent*/
 
 .character__conteiner {
@@ -378,6 +389,10 @@ form > button:hover {
 }
 @keyframes typing {
   from {width: 0} to {width: 100%}
+}
+
+.details .character:hover{
+  transform: none;
 }
 /* footer starts */
 
@@ -460,8 +475,6 @@ form > button:hover {
     opacity: 0;
   }
 }
-
-
 
 /* search not found */
 .search-not-found{

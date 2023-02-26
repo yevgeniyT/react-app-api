@@ -17,21 +17,30 @@ const NewCharacter = ({ onCreate }) => {
     }
     const [character, setCharacter] = useState(initCharacter);
     const [creating, setCreating] = useState(false);
+    const [nameValid, setNameValid] = useState('name-invalid');
+    const nameLength = 3;
 
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setCreating(true);
-        setTimeout(()=>{ // faking a post request
-            onCreate(character);
-            setCharacter(initCharacter);
-            setCreating(false);
-            navigate('/');
-        }, 1500);
+        if(nameValid === 'name-valid'){
+            setCreating(true);
+            setTimeout(()=>{ // faking a post request
+                onCreate(character);
+                setCharacter(initCharacter);
+                setCreating(false);
+                navigate('/');
+            }, 1000);
+        }
     }
 
     const handleChange = (event) => {
+        if(event.target.value.length < nameLength){
+            setNameValid('name-invalid');
+        } else {
+            setNameValid('name-valid')
+        }
         setCharacter((prevState) => {
             return { ...prevState, [event.target.name]: event.target.value }
         });
@@ -73,7 +82,7 @@ const NewCharacter = ({ onCreate }) => {
             {isPending && <Loading />}
             {error ? <Error message={error.message} /> :
                 <form onSubmit={handleSubmit} className="flex-centered">
-                    <div className="form__element">
+                    <div className={`form__element ${nameValid}`}>
                         <label htmlFor="fullName">Name</label>
                         <input
                             type="text"
