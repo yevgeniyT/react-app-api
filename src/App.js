@@ -13,8 +13,6 @@ import useFetch from './services/useFetch';
 import { useState, useEffect } from 'react';
 import { Error, Loading, NotFound } from './components/handlers';
 
-import { images } from "./data/data";
-
 function App() {
   const { data, error, isPending } = useFetch("characters");
 
@@ -26,7 +24,6 @@ function App() {
   }, [data]);
 
   const onCreate = (character) => {
-    // const newCharacter = { id: uuidv4(), ...character, image: images.find(image => image.name === character.image).src };
     const newCharacter = { id: uuidv4(), ...character};
     setCharacters(prevState => {
       return [...prevState, newCharacter];

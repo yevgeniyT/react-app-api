@@ -9,25 +9,22 @@ const UploadImages = ({onUpload}) => {
         const newImageURLs = [];
         images.forEach(image => newImageURLs.push(URL.createObjectURL(image)))
         setImageURLs(newImageURLs);
-    }, [images])
+    }, [images]); 
 
     useEffect(() => {
-        onUpload(imageURLs[0])
+        onUpload(imageURLs[0]);
     }, [imageURLs])
 
-    // YAY it works
-    // can't ve use prevState
-    // 
-    //
-    //
     function onImageChange(event) {
         setImages([...event.target.files]);
     }
 
     return (
         <>
-            <input className="form__element" type="file" accept="image/*" onChange={onImageChange} />
-            {imageURLs.map(imageSrc => <img src={imageSrc} alt="Profile" />)}
+            <input className="form__element" type="file" 
+                accept="image/*" onChange={onImageChange} 
+                />
+             {imageURLs.length > 0 && <img src={imageURLs[0]} alt="Profile" />}
         </>
     )
 }
