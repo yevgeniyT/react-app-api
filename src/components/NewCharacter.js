@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../services/useFetch";
 
-import { species, status, images } from "../data/data";
+import { species, status } from "../data/data";
 import { Loading, Error } from "./handlers";
+import UploadImages from "./UploadImages";
 
 const NewCharacter = ({ onCreate }) => {
     const initCharacter = {
@@ -73,8 +74,11 @@ const NewCharacter = ({ onCreate }) => {
     const statusOptions = status.map(status =>
         <option key={status.id} value={status.name}>{status.name}</option>);
 
-    const imagesOptions = images.map(image =>
-        <option key={image.id} value={image.name}>{image.name}</option>);
+    const handleUpload = (url) => {
+        setCharacter((prevState) => {
+            return { ...prevState, image: url }
+        });
+    }
 
     return (
         <section className="create">
@@ -82,6 +86,9 @@ const NewCharacter = ({ onCreate }) => {
             {isPending && <Loading />}
             {error ? <Error message={error.message} /> :
                 <form onSubmit={handleSubmit} className="flex-centered">
+                    <div className={`form__element ${nameValid}`}>
+                        <UploadImages onUpload={handleUpload} />
+                    </div>
                     <div className={`form__element ${nameValid}`}>
                         <label htmlFor="fullName">Name</label>
                         <input
@@ -122,17 +129,7 @@ const NewCharacter = ({ onCreate }) => {
                             {locations}
                         </select>
                     </div>
-                    <div className="form__element">
-                        <label htmlFor="image">Your character is </label>
-                        <select
-                            name="image"
-                            id="image"
-                            value={character.image}
-                            onChange={handleChange}>
-                            {imagesOptions}
-                        </select>
-                    </div>
-                    {creating ? 
+                    {creating ?
                         <button type="submit" className="blinking">Adding...</button> :
                         <button type="submit">Add Character</button>}
                 </form>
