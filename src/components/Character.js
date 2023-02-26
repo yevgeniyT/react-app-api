@@ -25,9 +25,12 @@ const Character = (props) => {
                             <p className="character__origin">Origin: {character.origin.name}</p>
                         </div>
                         <div>
-                            <Link className='link shot' to="/" onClick={(e)=>{handleCharacterDelete(character.id, e )}}>
+                        <span className="icon-button shot" onClick={(e) => { handleCharacterDelete(character.id, e) }}>
+                        <FaCrosshairs />
+                         </span>
+                            {/* <Link className='link shot' to="#" onClick={(e)=>{handleCharacterDelete(character.id, e )}}>
                              <FaCrosshairs/>
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </div>
