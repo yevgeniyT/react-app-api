@@ -28,7 +28,7 @@ const NewCharacter = ({ onCreate }) => {
             setCharacter(initCharacter);
             setCreating(false);
             navigate('/');
-        }, 2000);
+        }, 1500);
     }
 
     const handleChange = (event) => {
@@ -123,7 +123,8 @@ const NewCharacter = ({ onCreate }) => {
                             {imagesOptions}
                         </select>
                     </div>
-                    {creating ? <button type="submit">Adding...</button> :
+                    {creating ? 
+                        <button type="submit" className="blinking">Adding...</button> :
                         <button type="submit">Add Character</button>}
                 </form>
             }

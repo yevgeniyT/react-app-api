@@ -246,7 +246,7 @@ img {
   border-radius: 1rem;
   padding: 1rem;
   color: white;
-  background-image: url("./data/form-background.jpg");
+  background-image: url("./images/form-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 70% 100%;
@@ -343,9 +343,57 @@ form > button:hover {
   color: #aee8ec;
 }
 
-/* loading */
-
+/* loading */ 
 /* error */
+.loading,
+.error,
+.not-found{
+  min-height: 80vh;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.loading__logo,
+.error__logo,
+.not-found__logo{
+  width: 10rem;
+  min-height: auto;
+}
+
+
+.loading__body,
+.error__body,
+.not-found__body{
+  font-size: 1.5rem;
+}
+
+.not-found > a{
+  font-size: 1.8rem;
+  color:#262c3a;
+  padding: .2rem .7rem;
+  border-radius: var(--border-radius);
+  transition: all .2s linear;
+}
+
+.not-found > a:hover{
+  background-color:#262c3a;
+  color: #aee8ec;
+}
+
+.blinking{
+  animation: blink .5s linear infinite;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+
 
 /* search not found */
 .search-not-found{

@@ -27,8 +27,10 @@ const useFetch = (getData) => {
                 throw new Error("Could not fetch that data..");
             }
             const json = await response.json();
-            setData(json);
-            setIsPending(false);
+            setTimeout(()=>{ // faking out loading time from db (do not use in real projects!)
+                setData(json);
+                setIsPending(false);
+            }, 1000);
         } catch (error) {
             setError(error.message);
             setIsPending(false);
