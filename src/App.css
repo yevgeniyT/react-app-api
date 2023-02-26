@@ -29,7 +29,8 @@ body {
   align-items: center;
 }
 
-button:hover {
+button:hover,
+input[type="radio"]:hover {
   cursor: pointer;
 }
 
@@ -268,6 +269,12 @@ form {
   color: #262c3a;
 }
 
+form img {
+  width: 80%;
+  min-height: auto;
+  margin: 0 auto;
+}
+
 form input,
 form select {
   height: 3rem;
@@ -279,6 +286,68 @@ form select {
   text-align: left;
   width: 98%;
   border-bottom: 2px solid #262c3a;
+}
+.radio-row {
+  gap: 0.8rem;
+}
+
+.radio-element input {
+  width: 2rem;
+}
+
+.radio-element input:checked {
+  accent-color: #262c3a;
+}
+
+.radio-element label {
+  font-size: 1.5rem;
+}
+.radio-element input[type="file"] {
+  width: 98%;
+}
+
+.form__upload {
+  display: none;
+}
+
+#upload-label {
+  margin: 0 auto;
+}
+.upload-logo-alternative {
+  display: block;
+  transition: color 0.2s linear;
+}
+
+.upload-logo-alternative:hover {
+  cursor: pointer;
+  color: #4a4762;
+}
+
+.upload-logo {
+  font-size: 10rem;
+  filter: drop-shadow(16px 16px 20px red) invert(75%);
+  animation: heart-beat 1s infinite alternate ease-in;
+}
+
+@keyframes heart-beat {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.upload-logo:hover {
+  cursor: pointer;
+}
+
+.disabled-logo {
+  animation: none;
+}
+
+.disabled-logo:hover {
+  cursor: default;
 }
 
 form > button {
@@ -295,7 +364,18 @@ form > button:hover {
   color: #b5edfc;
 }
 
-/*character component*/
+.name-valid {
+  box-shadow: none;
+}
+
+.name-invalid {
+  box-shadow: 1px 1px 15px red;
+}
+.name-invalid::after {
+  content: "Name should consist of at least 3 characters";
+}
+
+/*charecter cimponent*/
 
 .character__conteiner {
   display: flex;
@@ -370,6 +450,10 @@ form > button:hover {
   to {
     width: 100%;
   }
+}
+
+.details .character:hover {
+  transform: none;
 }
 /* footer starts */
 
