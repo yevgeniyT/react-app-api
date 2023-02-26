@@ -4,6 +4,7 @@ import useFetch from "../services/useFetch";
 
 import { species, status, images } from "../data/data";
 import { Loading, Error } from "./handlers";
+import UploadImages from "./UploadImages";
 
 const NewCharacter = ({ onCreate }) => {
     const initCharacter = {
@@ -23,7 +24,7 @@ const NewCharacter = ({ onCreate }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setCreating(true);
-        setTimeout(()=>{ // faking a post request
+        setTimeout(() => { // faking a post request
             onCreate(character);
             setCharacter(initCharacter);
             setCreating(false);
@@ -123,7 +124,12 @@ const NewCharacter = ({ onCreate }) => {
                             {imagesOptions}
                         </select>
                     </div>
-                    {creating ? 
+
+                    <div className="form__element">
+                        <UploadImages />
+                    </div>
+
+                    {creating ?
                         <button type="submit" className="blinking">Adding...</button> :
                         <button type="submit">Add Character</button>}
                 </form>
