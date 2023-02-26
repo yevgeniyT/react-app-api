@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const UploadImages = () => {
+const UploadImages = ({onUpload}) => {
     const [images, setImages] = useState([]);
     const [imageURLs, setImageURLs] = useState([]);
 
@@ -11,14 +11,22 @@ const UploadImages = () => {
         setImageURLs(newImageURLs);
     }, [images])
 
+    useEffect(() => {
+        onUpload(imageURLs[0])
+    }, [imageURLs])
+
+    // YAY it works
+    // can't ve use prevState
+    // 
+    //
+    //
     function onImageChange(event) {
         setImages([...event.target.files]);
     }
 
-
     return (
         <>
-            <input className="form__element" type="file" multiple accept="image/*" onChange={onImageChange} />
+            <input className="form__element" type="file" accept="image/*" onChange={onImageChange} />
             {imageURLs.map(imageSrc => <img src={imageSrc} alt="Profile" />)}
         </>
     )

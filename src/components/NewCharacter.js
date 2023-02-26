@@ -68,6 +68,12 @@ const NewCharacter = ({ onCreate }) => {
     const imagesOptions = images.map(image =>
         <option key={image.id} value={image.name}>{image.name}</option>);
 
+    const handleUpload = (url) =>{
+        setCharacter((prevState) => {
+            return { ...prevState, image: url}
+        });
+    }
+
     return (
         <section className="create">
             <h2 className="create__header flex-centered">Expand the Universe of Rick and Morty!</h2>
@@ -126,7 +132,7 @@ const NewCharacter = ({ onCreate }) => {
                     </div>
 
                     <div className="form__element">
-                        <UploadImages />
+                        <UploadImages onUpload={handleUpload}/>
                     </div>
 
                     {creating ?

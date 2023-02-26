@@ -26,7 +26,8 @@ function App() {
   }, [data]);
 
   const onCreate = (character) => {
-    const newCharacter = { id: uuidv4(), ...character, image: images.find(image => image.name === character.image).src };
+    // const newCharacter = { id: uuidv4(), ...character, image: images.find(image => image.name === character.image).src };
+    const newCharacter = { id: uuidv4(), ...character};
     setCharacters(prevState => {
       return [...prevState, newCharacter];
     });
