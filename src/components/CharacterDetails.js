@@ -4,7 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 const CharacterDetails = ({ data }) => {
     const { id } = useParams();
-    const index = data.findIndex(character => character.id === parseInt(id));
+
+    const index = data.findIndex(character => character.id.toString() === id);
+    console.log(index);
+    console.log(data[index]);
     return (
         <section className="details flex-centered">
             <div className="character-details">
@@ -16,22 +19,22 @@ const CharacterDetails = ({ data }) => {
                     <div className='character__dsc'>
                         <div className="col-75 type">
                             {["Detailed information:",
-                                `createrd at: ${data[index].created}`,
-                                `Status: ${data[index].status}`,
-                                `Species: ${data[index].species}`,
-                                `Gender: ${data[index].gender}`,
-                                `Type: ${data[index].type}`].map((text, index) => (
+                                `createrd at: ${data[index].created ? data[index].created : 'unknown'}`,
+                                `Status: ${data[index].status ? data[index].status : '-----'}`,
+                                `Species: ${data[index].species ? data[index].species : '-----'}`,
+                                `Gender: ${data[index].gender ? data[index].gender : '-----'}`,
+                                `Type: ${data[index].type ? data[index].type : ' -----'}`].map((text, index) => (
                                     <p key={uuidv4()} className="typed" style={{ animationDelay: `${index * 1}s` }}>{text}</p>))}
                         </div>
 
                         <div className="container__col col-25" >
                             <div>
                                 <p>Origin:</p>
-                                <p className="character__link">{data[index].origin.name}</p>
+                                <p className="character__link">{data[index].origin.name ? data[index].origin.name : '-----'}</p>
                             </div>
                             <div>
                                 <p>Current location:</p>
-                                <p className="character__link">{data[index].location.name}</p>
+                                <p className="character__link">{data[index].location ? data[index].location.name : '-----'}</p>
                             </div>
                         </div>
                     </div>

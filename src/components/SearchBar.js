@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { FaSearch } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const SearchBar = (props) => {
     const { data, handler } = props;
     const [searchInput, setSearchInput] = useState("");
 
-    const upperCase = searchInput.toUpperCase();
-    console.log(upperCase);
     const handleChange = (e) => {
         setSearchInput(prevState => prevState = e.target.value);
     };
 
     useEffect(() => {
         handler(data.filter((character) => {
-            return character.name.match(upperCase);
+            return character.name.toUpperCase().match(searchInput.toUpperCase());
         }));
-    }, [upperCase]);
+    }, [searchInput]);
 
     return (
         <div className='search-body'>
@@ -25,13 +24,13 @@ const SearchBar = (props) => {
                     name="search"
                     placeholder="Search..."
                     onChange={handleChange}
-                    value={upperCase}
+                    value={searchInput}
                     className="search-input"
 
                 />
-                <a href="#" className="search-btn">
+                <Link to="#" className="search-btn">
                     <FaSearch className='fas' />
-                </a>
+                </Link>
             </div>
         </div>
     )

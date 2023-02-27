@@ -13,6 +13,7 @@ const NewCharacter = ({ onCreate }) => {
     const defaultAvatar = 'https://i.postimg.cc/WpMwFJtW/default-avatar.png';
 
     const initCharacter = {
+        created: '',
         image: '',
         name: '',
         status: 'alive',
@@ -33,7 +34,7 @@ const NewCharacter = ({ onCreate }) => {
         if (nameValid === 'name-valid') {
             setCreating(true);
             setTimeout(() => { // faking a post request
-                onCreate(character);
+                onCreate({...character, created:new Date().toLocaleString()});
                 setCharacter(initCharacter);
                 setCreating(false);
                 navigate('/');
