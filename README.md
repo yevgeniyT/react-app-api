@@ -26,9 +26,9 @@ This application was built using the following technologies:
 
 - `CharacterDetails` - Displays the detailed information of a single character. Uses React Router to get the character's ID from the URL params, and then searches for that character in a data array. Displays the character's name, image, status, species, gender, type, origin, and current location. The component also includes some animations to make the information more visually appealing.
 
--`Footer` - Displays a footer with links to the homepage, creators' GitHub profiles, and the official Rick and Morty YouTube and Instagram pages. Uses React Icons to display the icons for each link.
+- `Footer` - Displays a footer with links to the homepage, creators' GitHub profiles, and the official Rick and Morty YouTube and Instagram pages. Uses React Icons to display the icons for each link.
 
--`Header` - A simple navigation bar that contains two links, "Home" and "Create". Provides easy access to different parts of the application and allows users to switch between views by clicking on the links. Uses the Link component from the react-router-dom library to ensure that the navigation is handled client-side without a page refresh.
+- `Header` - A simple navigation bar that contains two links, "Home" and "Create". Provides easy access to different parts of the application and allows users to switch between views by clicking on the links. Uses the Link component from the react-router-dom library to ensure that the navigation is handled client-side without a page refresh.
 
 - `SearchBar` - Provides a search input field along with a search button. When the user types in the search input, the component filters through the given data and displays the filtered data according to the user's input. This component takes in a data and handler prop, where data is the data that needs to be filtered and handler is a callback function that returns the filtered data. Utilizes the useState and useEffect hooks to manage the state of the input field and filter the data respectively. Also uses the Link component from react-router-dom to enable routing to different pages.
 
