@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Header from "./components/Header";
-import SearchBar from './components/SearchBar'
 import Home from './components/Home';
 import NewCharacter from './components/NewCharacter';
 import CharacterDetails from './components/CharacterDetails';
@@ -33,22 +32,10 @@ function App() {
     setCharacters(characters.filter(character => character.id !== id))
   }
 
-  // const onSearch = (foundCharacters) => {
-  //   if (foundCharacters.length > 0) {
-  //     setCharacters(foundCharacters);
-  //     setFound(true);
-  //   } else if (foundCharacters.length === 0) {
-  //     setFound(false);
-  //   }
-  // }
-
   return (
     <div className="page-content">
       <Router>
-        <Header>
-          {/* {data && <SearchBar data={data.results} handler={onSearch} />} */}
-        </Header>
-
+        <Header />
         {isPending && <Loading />}
         {error && <Error message={error} />}
         {characters &&
