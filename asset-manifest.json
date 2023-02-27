@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/react-app-api/static/css/main.8e13af65.css",
-    "main.js": "/react-app-api/static/js/main.fb255a1c.js",
+    "main.js": "/react-app-api/static/js/main.685b07c4.js",
     "static/media/not-found-animated.gif": "/react-app-api/static/media/not-found-animated.9d68cb27d129f3d1869b.gif",
     "static/media/error-animated.gif": "/react-app-api/static/media/error-animated.d56c0bba0abff416c179.gif",
     "static/media/loading-animated.gif": "/react-app-api/static/media/loading-animated.27397308fa6622630b01.gif",
     "static/media/form-background.jpg": "/react-app-api/static/media/form-background.615d754a4ad62e79d74c.jpg",
     "index.html": "/react-app-api/index.html",
     "main.8e13af65.css.map": "/react-app-api/static/css/main.8e13af65.css.map",
-    "main.fb255a1c.js.map": "/react-app-api/static/js/main.fb255a1c.js.map"
+    "main.685b07c4.js.map": "/react-app-api/static/js/main.685b07c4.js.map"
   },
   "entrypoints": [
     "static/css/main.8e13af65.css",
-    "static/js/main.fb255a1c.js"
+    "static/js/main.685b07c4.js"
   ]
 }
