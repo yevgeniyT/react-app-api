@@ -28,9 +28,6 @@ const Character = (props) => {
                         <span className="icon-button shot" onClick={(e) => { handleCharacterDelete(character.id, e) }}>
                         <FaCrosshairs />
                          </span>
-                            {/* <Link className='link shot' to="#" onClick={(e)=>{handleCharacterDelete(character.id, e )}}>
-                             <FaCrosshairs/>
-                            </Link> */}
                         </div>
                     </div>
                 </div>
