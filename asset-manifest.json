@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bb90a211.css",
+    "main.js": "/static/js/main.922b5ae1.js",
+    "static/media/not-found-animated.gif": "/static/media/not-found-animated.9d68cb27d129f3d1869b.gif",
+    "static/media/error-animated.gif": "/static/media/error-animated.d56c0bba0abff416c179.gif",
+    "static/media/loading-animated.gif": "/static/media/loading-animated.27397308fa6622630b01.gif",
+    "static/media/form-background.jpg": "/static/media/form-background.615d754a4ad62e79d74c.jpg",
+    "index.html": "/index.html",
+    "main.bb90a211.css.map": "/static/css/main.bb90a211.css.map",
+    "main.922b5ae1.js.map": "/static/js/main.922b5ae1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb90a211.css",
+    "static/js/main.922b5ae1.js"
+  ]
+}
