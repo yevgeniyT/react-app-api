@@ -5,15 +5,17 @@ const SearchBar = (props) => {
     const { data, handler } = props;
     const [searchInput, setSearchInput] = useState("");
 
+    const upperCase = searchInput.toUpperCase();
+    console.log(upperCase);
     const handleChange = (e) => {
         setSearchInput(prevState => prevState = e.target.value);
     };
 
     useEffect(() => {
         handler(data.filter((character) => {
-            return character.name.match(searchInput);
+            return character.name.match(upperCase);
         }));
-    }, [searchInput]);
+    }, [upperCase]);
 
     return (
         <div className='search-body'>
@@ -23,7 +25,7 @@ const SearchBar = (props) => {
                     name="search"
                     placeholder="Search..."
                     onChange={handleChange}
-                    value={searchInput}
+                    value={upperCase}
                     className="search-input"
 
                 />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import {FaCrosshairs} from 'react-icons/fa';
+import { FaCrosshairs } from 'react-icons/fa';
 
 const Character = (props) => {
     const { character, getId } = props;
@@ -25,9 +25,9 @@ const Character = (props) => {
                             <p className="character__origin">Origin: {character.origin.name}</p>
                         </div>
                         <div>
-                        <span className="icon-button shot" onClick={(e) => { handleCharacterDelete(character.id, e) }}>
-                        <FaCrosshairs />
-                         </span>
+                            <span className="icon-button shot" onClick={(e) => { handleCharacterDelete(character.id, e) }}>
+                                <FaCrosshairs />
+                            </span>
                             {/* <Link className='link shot' to="#" onClick={(e)=>{handleCharacterDelete(character.id, e )}}>
                              <FaCrosshairs/>
                             </Link> */}
