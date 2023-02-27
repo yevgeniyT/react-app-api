@@ -71,7 +71,7 @@ input[type="radio"]:hover {
   text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
 }
 
-.search-container:hover > .search-input {
+.search-container:hover>.search-input {
   width: 15rem;
 }
 
@@ -154,6 +154,7 @@ img {
   height: 45vh;
   display: grid;
 }
+
 /* title */
 .title {
   height: 70vh;
@@ -224,8 +225,7 @@ img {
 
 @font-face {
   font-family: "Get Schwifty";
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3089507/get-schwifty.woff")
-    format("woff");
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3089507/get-schwifty.woff") format("woff");
 }
 
 /* create new character section */
@@ -288,6 +288,7 @@ form select {
   width: 98%;
   border-bottom: 2px solid #262c3a;
 }
+
 .radio-row {
   gap: 0.8rem;
 }
@@ -303,6 +304,7 @@ form select {
 .radio-element label {
   font-size: 1.5rem;
 }
+
 .radio-element input[type="file"] {
   width: 98%;
 }
@@ -314,6 +316,7 @@ form select {
 #upload-label {
   margin: 0 auto;
 }
+
 .upload-logo-alternative {
   display: block;
   transition: color 0.2s linear;
@@ -334,6 +337,7 @@ form select {
   from {
     transform: scale(1);
   }
+
   to {
     transform: scale(1.1);
   }
@@ -351,7 +355,7 @@ form select {
   cursor: default;
 }
 
-form > button {
+form>button {
   width: 60%;
   height: 3.5rem;
   font-family: "Get Schwifty";
@@ -361,7 +365,7 @@ form > button {
   border: none;
 }
 
-form > button:hover {
+form>button:hover {
   color: #b5edfc;
 }
 
@@ -372,6 +376,7 @@ form > button:hover {
 .name-invalid {
   box-shadow: 1px 1px 15px red;
 }
+
 .name-invalid::after {
   content: "Name should consist of at least 3 characters";
 }
@@ -383,6 +388,7 @@ form > button:hover {
   justify-content: space-between;
   align-items: center;
 }
+
 .shot svg {
   font-size: 2.5rem;
   margin-right: 1rem;
@@ -392,8 +398,9 @@ form > button:hover {
   transform: scale(1.2);
   transition: 0.3s;
 }
+
 /* character details section */
-.description__header{
+.description__header {
   font-size: 2rem;
 }
 
@@ -405,16 +412,18 @@ form > button:hover {
 }
 
 .title__dsc {
-    color: orange;
+  color: orange;
 }
 
 .character__link :hover {
   transform: scale(1.2);
   transition: 0.3s;
 }
+
 .details {
   min-height: 80vh;
 }
+
 .character-details {
   width: 60%;
   height: 50%;
@@ -428,11 +437,13 @@ form > button:hover {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
+
 .type {
   display: inline-block;
- 
+
 
 }
+
 .typed {
   overflow: hidden;
   white-space: nowrap;
@@ -442,10 +453,12 @@ form > button:hover {
   animation-timing-function: steps(30, end);
   animation-fill-mode: forwards;
 }
+
 @keyframes typing {
   from {
     width: 0;
   }
+
   to {
     width: 100%;
   }
@@ -454,6 +467,7 @@ form > button:hover {
 .details .character:hover {
   transform: none;
 }
+
 /* footer starts */
 
 .footer {
@@ -466,7 +480,7 @@ form > button:hover {
   font-size: 1.6rem;
 }
 
-.footer > div {
+.footer>div {
   gap: 1rem;
 }
 
@@ -509,7 +523,7 @@ form > button:hover {
   font-size: 1.5rem;
 }
 
-.not-found > a {
+.not-found>a {
   font-size: 1.8rem;
   color: #262c3a;
   padding: 0.2rem 0.7rem;
@@ -517,7 +531,7 @@ form > button:hover {
   transition: all 0.2s linear;
 }
 
-.not-found > a:hover {
+.not-found>a:hover {
   background-color: #262c3a;
   color: #aee8ec;
 }
@@ -530,6 +544,7 @@ form > button:hover {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -537,9 +552,15 @@ form > button:hover {
 
 /* search not found */
 .search-not-found {
-  min-height: 60vh;
+  padding-top: 10vh;
+  min-height: 75vh;
   font-size: 3rem;
   flex-direction: column;
+  justify-content: flex-start;
+}
+
+.search-not-found p{
+  text-align: center;
 }
 
 @media (max-width: 1200px) {
@@ -555,10 +576,16 @@ form > button:hover {
   .create {
     max-width: 80vw;
   }
-  .container__col {    
+
+  .container__col {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     margin-bottom: 1rem;
-     }
+  }
+
+  .search-not-found {
+    padding-top: 5vh;
+    min-height: 55vh;
+  }
 }
 
 @media (max-width: 962px) {
@@ -588,7 +615,12 @@ form > button:hover {
     grid-column: 1 / span 2;
     grid-row: 2;
   }
-  
+
+  .search-not-found {
+    padding-top: 5vh;
+    min-height: 50vh;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -596,7 +628,7 @@ form > button:hover {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
-  .search-container:hover > .search-input {
+  .search-container:hover>.search-input {
     width: 10rem;
   }
 
@@ -612,14 +644,20 @@ form > button:hover {
   .container {
     height: 30vh;
   }
+
   .character-details {
     width: 70%;
-   }
-   .ditails__header {
+  }
+
+  .ditails__header {
     margin: 0;
     font-size: 3rem;
   }
-  
+
+  .search-not-found {
+    padding-top: 3vh;
+    min-height: 45vh;
+  }
 }
 
 @media (max-width: 600px) {
@@ -629,7 +667,7 @@ form > button:hover {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
-  .search-container:hover > .search-input {
+  .search-container:hover>.search-input {
     width: 8rem;
   }
 
@@ -657,21 +695,30 @@ form > button:hover {
     font-size: 5em;
   }
 
-  .footer > .footer-center {
+  .footer>.footer-center {
     flex-direction: column;
     gap: 0.5rem;
   }
-  .col-75{
+
+  .col-75 {
     max-width: 100%;
     font-size: 1.5rem;
   }
-  .container__col{
+
+  .container__col {
     font-size: 1.5rem;
   }
+
   .character-details {
     width: 80%;
-   }
-   
+  }
+
+  .search-not-found {
+    padding-top: 5vh;
+    min-height: 35vh;
+    font-size: 2rem;
+  }
+
 }
 
 @media (max-width: 450px) {
@@ -685,11 +732,18 @@ form > button:hover {
     top: 20vh;
   }
 
-  .search-container:hover > .search-input {
+  .search-container:hover>.search-input {
     width: 5rem;
   }
+
   .ditails__header {
     font-size: 2.5rem;
+  }
+
+  .search-not-found {
+    padding-top: 10vh;
+    min-height: 35vh;
+    font-size: 2rem;
   }
 }
 
@@ -704,15 +758,16 @@ form > button:hover {
     top: 15vh;
   }
 
-  .route{
+  .route {
     font-size: 1.5rem;
   }
 
-  .search-container:hover > .search-input {
+  .search-container:hover>.search-input {
     width: 3rem;
   }
+
   .character-details {
     width: 95%;
-   }
+  }
 
 }

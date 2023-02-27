@@ -23,7 +23,7 @@ const CharacterDetails = ({ data }) => {
                                 { key: "Status:", value: data[index].status },
                                 { key: "Species:", value: `${data[index].species ? data[index].species : '-----'}` },
                                 { key: "Gender:", value: `${data[index].gender ? data[index].gender : '-----'}` },
-                                { key: "Type:", value: `${data[index].type ? data[index].type : ' -----'}` }
+                                { key: "Type:", value: `${data[index].type ? data[index].type : '-----'}` }
                             ].map(({ key, value }, index) => (
                                 <p key={uuidv4()} className="typed" style={{ animationDelay: `${index * 1}s` }}>
                                     <span className="title__dsc">{key}</span> {value}
