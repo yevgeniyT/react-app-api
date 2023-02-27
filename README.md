@@ -1,5 +1,9 @@
 # Rick and Morty Universe app
 Explore the characters of the Rick and Morty Universe, find out their current status, location and episodes, and add or delete characters from the list.
+
+## Video Demo
+Check out this  [VIDEO DEMO](https://youtu.be/sgGbCiAKq5k) to see the app in action!
+
 -----
 ## Before you start using it, don't forget to:
 1. Fork this repository and clone using `git clone` 
