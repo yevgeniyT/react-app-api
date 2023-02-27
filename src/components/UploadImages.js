@@ -14,7 +14,7 @@ const UploadImages = ({ onUpload, isDisabled }) => {
 
     useEffect(() => {
         onUpload(imageURLs[0]);
-    }, [imageURLs])
+    }, [imageURLs, onUpload])
 
     function onImageChange(event) {
         setImages([...event.target.files]);

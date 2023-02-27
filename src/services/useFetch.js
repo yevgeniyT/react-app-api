@@ -39,7 +39,7 @@ const useFetch = (getData) => {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [getData]);
 
     return { data, error, isPending }
 }

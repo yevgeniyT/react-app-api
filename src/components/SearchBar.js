@@ -14,7 +14,7 @@ const SearchBar = (props) => {
         handler(data.filter((character) => {
             return character.name.toUpperCase().match(searchInput.toUpperCase());
         }));
-    }, [searchInput]);
+    }, [searchInput, data, handler]);
 
     return (
         <div className='search-body'>
